@@ -1,0 +1,1699 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="ASCENDIA 留学生专属高端求职陪跑工作室。">
+  <title>ASCENDIA | Redefine Your Limits</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,800&amp;family=Noto+Serif+SC:wght@700;900&amp;family=Noto+Sans+SC:wght@400;500;700&amp;display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --color-navy: #0B1324;
+      --color-navy-soft: #111B2E;
+      --color-navy-light: #1B2740;
+      --color-gold: #D6B85F;
+      --color-gold-soft: #F1D884;
+      --color-silver: #E3E7EA;
+      --color-white: #F8FAFC;
+      --color-muted: #AAB3C2;
+      --color-border: #263247;
+      --gradient-hero: linear-gradient(135deg, #0B1324 0%, #111B2E 58%, #1B2740 100%);
+      --gradient-gold: linear-gradient(135deg, #D6B85F 0%, #F1D884 100%);
+      --font-serif-en: "Fraunces", "Playfair Display", "Cormorant Garamond", Georgia, serif;
+      --font-serif-cn: "Noto Serif SC", "Source Han Serif SC", "Songti SC", serif;
+      --font-sans-cn: "Noto Sans SC", "Source Han Sans SC", -apple-system, BlinkMacSystemFont, "PingFang SC", "Helvetica Neue", sans-serif;
+      --max-width: 1280px;
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background: var(--gradient-hero);
+      color: var(--color-silver);
+      font-family: var(--font-sans-cn);
+      line-height: 1.7;
+    }
+
+    ::selection {
+      background: var(--color-gold);
+      color: var(--color-navy);
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    a:focus-visible,
+    button:focus-visible {
+      outline: 2px solid var(--color-gold);
+      outline-offset: 4px;
+    }
+
+    .page-shell {
+      position: relative;
+      overflow: hidden;
+      min-height: 100vh;
+    }
+
+    .page-shell::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background:
+        linear-gradient(90deg, rgba(214, 184, 95, 0.08) 1px, transparent 1px),
+        linear-gradient(180deg, rgba(227, 231, 234, 0.04) 1px, transparent 1px);
+      background-size: 96px 96px;
+      mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.82), transparent 78%);
+    }
+
+    .nav {
+      position: relative;
+      z-index: 2;
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: clamp(20px, 3vw, 34px) clamp(20px, 5vw, 72px);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 14px;
+      min-width: 0;
+    }
+
+    .brand img {
+      width: 42px;
+      height: auto;
+      display: block;
+    }
+
+    .brand-wordmark {
+      display: flex;
+      flex-direction: column;
+      gap: 1px;
+    }
+
+    .brand-name {
+      color: var(--color-white);
+      font-family: var(--font-serif-en);
+      font-size: 1.08rem;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+    }
+
+    .brand-sub {
+      color: var(--color-muted);
+      font-size: 0.72rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: clamp(18px, 2.4vw, 34px);
+      color: var(--color-muted);
+      font-size: 0.9rem;
+    }
+
+    .nav-link {
+      background-image: linear-gradient(var(--color-gold), var(--color-gold));
+      background-repeat: no-repeat;
+      background-position: 0 100%;
+      background-size: 0 2px;
+      transition: color 0.22s ease, background-size 0.22s ease;
+    }
+
+    .nav-link:hover {
+      color: var(--color-white);
+      background-size: 100% 2px;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 46px;
+      padding: 0 22px;
+      border: 1px solid transparent;
+      border-radius: 999px;
+      font-size: 0.94rem;
+      font-weight: 700;
+      line-height: 1;
+      transition: transform 0.22s ease, box-shadow 0.22s ease, border-color 0.22s ease;
+    }
+
+    .button:hover {
+      transform: translateY(-2px);
+    }
+
+    .button-primary {
+      background: var(--gradient-gold);
+      color: var(--color-navy);
+      box-shadow: 0 14px 34px rgba(214, 184, 95, 0.22);
+    }
+
+    .button-primary:hover {
+      box-shadow: 0 18px 46px rgba(214, 184, 95, 0.3);
+    }
+
+    .button-secondary {
+      border-color: rgba(227, 231, 234, 0.22);
+      color: var(--color-silver);
+      background: rgba(11, 19, 36, 0.28);
+    }
+
+    .button-secondary:hover {
+      border-color: rgba(214, 184, 95, 0.68);
+      color: var(--color-white);
+    }
+
+    .hero {
+      position: relative;
+      z-index: 1;
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: clamp(56px, 8vh, 96px) clamp(20px, 5vw, 72px) clamp(72px, 11vh, 140px);
+      display: grid;
+      grid-template-columns: minmax(0, 1.16fr) minmax(280px, 0.72fr);
+      align-items: center;
+      gap: clamp(44px, 6vw, 88px);
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 22px;
+      color: var(--color-gold-soft);
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 42px;
+      height: 1px;
+      background: var(--color-gold);
+    }
+
+    .hero h1 {
+      max-width: 780px;
+      margin: 0;
+      color: var(--color-white);
+      font-family: var(--font-serif-en);
+      font-size: clamp(3rem, 7vw, 6rem);
+      font-weight: 800;
+      line-height: 0.98;
+      letter-spacing: 0;
+    }
+
+    .hero h1 span {
+      display: block;
+      margin-top: 12px;
+      color: var(--color-gold);
+      font-family: var(--font-serif-cn);
+      font-size: clamp(2rem, 4.2vw, 3.8rem);
+      line-height: 1.12;
+    }
+
+    .hero-copy {
+      max-width: 640px;
+      margin: 26px 0 0;
+      color: var(--color-silver);
+      font-size: clamp(1rem, 1.35vw, 1.14rem);
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-top: 34px;
+    }
+
+    .hero-visual {
+      position: relative;
+      min-height: 430px;
+      display: grid;
+      place-items: center;
+      border: 1px solid var(--color-border);
+      border-radius: 28px;
+      background: linear-gradient(145deg, rgba(17, 27, 46, 0.98), rgba(11, 19, 36, 0.96));
+      box-shadow: 0 28px 80px rgba(0, 0, 0, 0.3);
+      overflow: hidden;
+    }
+
+    .hero-visual::before,
+    .hero-visual::after {
+      content: "";
+      position: absolute;
+      pointer-events: none;
+    }
+
+    .hero-visual::before {
+      inset: 34px;
+      border: 1px solid rgba(214, 184, 95, 0.32);
+      border-radius: 20px;
+    }
+
+    .hero-visual::after {
+      left: 0;
+      right: 0;
+      top: 47%;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(214, 184, 95, 0.62), transparent);
+    }
+
+    .logo-stage {
+      position: relative;
+      width: min(72%, 300px);
+      aspect-ratio: 1 / 1;
+      display: grid;
+      place-items: center;
+    }
+
+    .logo-stage img {
+      position: relative;
+      z-index: 1;
+      width: 100%;
+      height: auto;
+      display: block;
+      filter: drop-shadow(0 24px 36px rgba(0, 0, 0, 0.28));
+    }
+
+    .metric-note {
+      position: absolute;
+      left: clamp(22px, 4vw, 38px);
+      bottom: clamp(22px, 4vw, 38px);
+      max-width: 210px;
+      color: var(--color-muted);
+      font-size: 0.82rem;
+    }
+
+    .metric-note strong {
+      display: block;
+      color: var(--color-gold);
+      font-family: var(--font-serif-en);
+      font-size: 1.85rem;
+      line-height: 1;
+      margin-bottom: 7px;
+    }
+
+    .content-section {
+      position: relative;
+      z-index: 1;
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: clamp(72px, 10vh, 128px) clamp(20px, 5vw, 72px);
+    }
+
+    .section-kicker {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      margin: 0 0 14px;
+      color: var(--color-gold-soft);
+      font-size: 0.76rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+
+    .section-kicker::before {
+      content: "";
+      width: 32px;
+      height: 1px;
+      background: var(--color-gold);
+    }
+
+    .section-title {
+      max-width: 760px;
+      margin: 0;
+      color: var(--color-white);
+      font-family: var(--font-serif-cn);
+      font-size: clamp(1.8rem, 4vw, 3rem);
+      line-height: 1.18;
+    }
+
+    .section-copy {
+      max-width: 620px;
+      margin: 18px 0 0;
+      color: var(--color-muted);
+      font-size: clamp(0.96rem, 1.25vw, 1.08rem);
+    }
+
+    .trust-band {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      margin-top: clamp(34px, 5vw, 64px);
+      border-top: 1px solid rgba(214, 184, 95, 0.32);
+      border-bottom: 1px solid rgba(214, 184, 95, 0.32);
+    }
+
+    .trust-stat {
+      min-height: 172px;
+      padding: clamp(24px, 3vw, 38px);
+      border-right: 1px solid rgba(227, 231, 234, 0.1);
+      background: linear-gradient(180deg, rgba(17, 27, 46, 0.7), rgba(11, 19, 36, 0.18));
+      transition: transform 0.22s ease, border-color 0.22s ease, background 0.22s ease, box-shadow 0.22s ease;
+    }
+
+    .trust-stat:last-child {
+      border-right: 0;
+    }
+
+    .trust-value {
+      display: block;
+      color: var(--color-gold);
+      font-family: var(--font-serif-en);
+      font-size: clamp(2.65rem, 5vw, 5rem);
+      font-weight: 800;
+      line-height: 0.92;
+    }
+
+    .trust-label {
+      margin-top: 18px;
+      color: var(--color-white);
+      font-weight: 700;
+    }
+
+    .trust-note {
+      margin: 8px 0 0;
+      color: var(--color-muted);
+      font-size: 0.86rem;
+    }
+
+    .problem-section {
+      display: grid;
+      grid-template-columns: minmax(240px, 0.42fr) minmax(0, 1fr);
+      gap: clamp(38px, 6vw, 92px);
+      align-items: start;
+    }
+
+    .problem-aside {
+      position: sticky;
+      top: 34px;
+    }
+
+    .problem-stack {
+      position: relative;
+      display: grid;
+      gap: 18px;
+      padding-left: 34px;
+    }
+
+    .problem-stack::before {
+      content: "";
+      position: absolute;
+      left: 10px;
+      top: 22px;
+      bottom: 22px;
+      width: 1px;
+      background: linear-gradient(180deg, var(--color-gold), rgba(214, 184, 95, 0.05));
+    }
+
+    .problem-item {
+      position: relative;
+      display: grid;
+      grid-template-columns: 96px minmax(0, 1fr);
+      gap: clamp(18px, 3vw, 34px);
+      align-items: start;
+      padding: clamp(22px, 3vw, 32px) 0;
+      border-bottom: 1px solid rgba(227, 231, 234, 0.12);
+      transition: border-color 0.22s ease, transform 0.22s ease;
+    }
+
+    .problem-item::before {
+      content: "";
+      position: absolute;
+      left: -30px;
+      top: 32px;
+      width: 13px;
+      height: 13px;
+      border: 2px solid var(--color-gold);
+      border-radius: 50%;
+      background: var(--color-navy);
+    }
+
+    .problem-code {
+      color: rgba(214, 184, 95, 0.72);
+      font-family: var(--font-serif-en);
+      font-size: 1.22rem;
+      font-weight: 800;
+    }
+
+    .problem-item h3,
+    .service-step h3,
+    .mentor-node h3 {
+      margin: 0;
+      color: var(--color-white);
+      font-family: var(--font-serif-cn);
+      font-size: clamp(1.1rem, 1.7vw, 1.36rem);
+      line-height: 1.35;
+    }
+
+    .problem-item p,
+    .service-step p,
+    .mentor-node p,
+    .student-core p {
+      margin: 10px 0 0;
+      color: var(--color-muted);
+      font-size: 0.94rem;
+    }
+
+    .service-path {
+      position: relative;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0;
+      margin-top: clamp(36px, 5vw, 66px);
+    }
+
+    .service-path::before {
+      content: "";
+      position: absolute;
+      left: 8%;
+      right: 8%;
+      top: 42px;
+      height: 1px;
+      background: linear-gradient(90deg, rgba(214, 184, 95, 0.12), rgba(214, 184, 95, 0.72), rgba(214, 184, 95, 0.12));
+    }
+
+    .service-step {
+      position: relative;
+      min-height: 282px;
+      padding: clamp(26px, 3vw, 38px);
+      border: 1px solid var(--color-border);
+      background: rgba(17, 27, 46, 0.74);
+      transition: transform 0.22s ease, border-color 0.22s ease, background 0.22s ease, box-shadow 0.22s ease;
+    }
+
+    .service-step:nth-child(2) {
+      margin-top: 42px;
+    }
+
+    .service-step:nth-child(3) {
+      margin-top: 84px;
+    }
+
+    .service-step:nth-child(4) {
+      margin-top: 28px;
+    }
+
+    .service-index {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 44px;
+      height: 44px;
+      margin-bottom: 44px;
+      border-radius: 50%;
+      background: var(--gradient-gold);
+      color: var(--color-navy);
+      font-family: var(--font-serif-en);
+      font-weight: 800;
+      box-shadow: 0 12px 28px rgba(214, 184, 95, 0.2);
+    }
+
+    .service-tag {
+      display: inline-flex;
+      margin-top: 22px;
+      padding: 6px 11px;
+      border: 1px solid rgba(214, 184, 95, 0.34);
+      color: var(--color-gold-soft);
+      font-size: 0.75rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .mentor-matrix {
+      display: grid;
+      grid-template-columns: minmax(230px, 0.86fr) minmax(220px, 0.7fr) minmax(230px, 0.86fr);
+      gap: clamp(24px, 4vw, 52px);
+      align-items: center;
+      margin-top: clamp(36px, 5vw, 68px);
+    }
+
+    .mentor-node,
+    .student-core {
+      position: relative;
+      border: 1px solid var(--color-border);
+      background: rgba(17, 27, 46, 0.72);
+      box-shadow: 0 20px 54px rgba(0, 0, 0, 0.2);
+      transition: transform 0.22s ease, border-color 0.22s ease, background 0.22s ease, box-shadow 0.22s ease;
+    }
+
+    .mentor-node {
+      padding: clamp(26px, 3vw, 38px);
+      min-height: 240px;
+      border-radius: 22px;
+    }
+
+    .mentor-node::after {
+      content: "";
+      position: absolute;
+      top: 50%;
+      width: clamp(24px, 4vw, 54px);
+      height: 1px;
+      background: var(--color-gold);
+    }
+
+    .mentor-node:first-child::after {
+      right: calc(clamp(24px, 4vw, 54px) * -1);
+    }
+
+    .mentor-node:last-child::after {
+      left: calc(clamp(24px, 4vw, 54px) * -1);
+    }
+
+    .node-label {
+      display: inline-flex;
+      margin-bottom: 28px;
+      color: var(--color-gold-soft);
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .student-core {
+      display: grid;
+      place-items: center;
+      min-height: 300px;
+      padding: clamp(28px, 3.5vw, 44px);
+      border-color: rgba(214, 184, 95, 0.45);
+      border-radius: 999px;
+      text-align: center;
+    }
+
+    .student-core strong {
+      display: block;
+      color: var(--color-gold);
+      font-family: var(--font-serif-en);
+      font-size: clamp(3.2rem, 6vw, 5.5rem);
+      line-height: 0.95;
+    }
+
+    .student-core span {
+      display: block;
+      margin-top: 10px;
+      color: var(--color-white);
+      font-family: var(--font-serif-cn);
+      font-size: 1.22rem;
+      font-weight: 700;
+    }
+
+    .process-timeline {
+      position: relative;
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 0;
+      margin-top: clamp(38px, 5vw, 70px);
+      padding-top: 34px;
+    }
+
+    .process-timeline::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 55px;
+      height: 1px;
+      background: linear-gradient(90deg, rgba(214, 184, 95, 0.08), rgba(214, 184, 95, 0.72), rgba(214, 184, 95, 0.08));
+    }
+
+    .process-step {
+      position: relative;
+      min-height: 220px;
+      padding: 56px 18px 26px;
+      border-right: 1px solid rgba(227, 231, 234, 0.1);
+      transition: transform 0.22s ease, background 0.22s ease, border-color 0.22s ease;
+    }
+
+    .process-step:nth-child(even) {
+      margin-top: 54px;
+    }
+
+    .process-step:last-child {
+      border-right: 0;
+    }
+
+    .process-step::before {
+      content: "";
+      position: absolute;
+      top: 14px;
+      left: 18px;
+      width: 16px;
+      height: 16px;
+      border: 2px solid var(--color-gold);
+      border-radius: 50%;
+      background: var(--color-navy);
+      box-shadow: 0 0 0 8px rgba(214, 184, 95, 0.08);
+    }
+
+    .process-word {
+      display: block;
+      color: var(--color-gold);
+      font-family: var(--font-serif-en);
+      font-size: clamp(1.25rem, 2vw, 1.85rem);
+      font-weight: 800;
+      line-height: 1;
+    }
+
+    .process-name {
+      margin: 12px 0 0;
+      color: var(--color-white);
+      font-family: var(--font-serif-cn);
+      font-size: 1.04rem;
+      font-weight: 700;
+    }
+
+    .process-step p {
+      margin: 10px 0 0;
+      color: var(--color-muted);
+      font-size: 0.88rem;
+    }
+
+    .case-layout {
+      display: grid;
+      grid-template-columns: minmax(280px, 0.9fr) minmax(0, 1fr);
+      gap: clamp(24px, 4vw, 52px);
+      margin-top: clamp(36px, 5vw, 66px);
+      align-items: stretch;
+    }
+
+    .case-deck {
+      display: grid;
+      gap: 22px;
+    }
+
+    .case-study {
+      position: relative;
+      padding: clamp(26px, 3vw, 38px);
+      border: 1px solid var(--color-border);
+      border-radius: 24px;
+      background: rgba(17, 27, 46, 0.76);
+      box-shadow: 0 18px 48px rgba(0, 0, 0, 0.18);
+      transition: transform 0.22s ease, border-color 0.22s ease, background 0.22s ease, box-shadow 0.22s ease;
+    }
+
+    .case-study.case-featured {
+      min-height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      border-color: rgba(214, 184, 95, 0.38);
+    }
+
+    .case-id {
+      color: rgba(214, 184, 95, 0.62);
+      font-family: var(--font-serif-en);
+      font-size: clamp(3.4rem, 7vw, 6.2rem);
+      font-weight: 800;
+      line-height: 0.85;
+    }
+
+    .case-study h3 {
+      margin: 20px 0 0;
+      color: var(--color-white);
+      font-family: var(--font-serif-cn);
+      font-size: clamp(1.18rem, 2vw, 1.55rem);
+      line-height: 1.35;
+    }
+
+    .case-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1px;
+      margin-top: 26px;
+      background: rgba(227, 231, 234, 0.11);
+    }
+
+    .case-field {
+      padding: 18px;
+      background: rgba(11, 19, 36, 0.72);
+    }
+
+    .case-field span {
+      display: block;
+      color: var(--color-gold-soft);
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .case-field p {
+      margin: 8px 0 0;
+      color: var(--color-muted);
+      font-size: 0.88rem;
+    }
+
+    .case-result {
+      color: var(--color-white);
+    }
+
+    .promise-panel {
+      display: grid;
+      grid-template-columns: minmax(260px, 0.72fr) minmax(0, 1fr);
+      gap: clamp(28px, 5vw, 72px);
+      align-items: start;
+      margin-top: clamp(36px, 5vw, 66px);
+      padding: clamp(30px, 4vw, 52px);
+      border: 1px solid rgba(214, 184, 95, 0.34);
+      border-radius: 26px;
+      background: #F4F1EA;
+      color: #111827;
+      box-shadow: 0 24px 74px rgba(0, 0, 0, 0.24);
+    }
+
+    .promise-lead {
+      position: sticky;
+      top: 34px;
+    }
+
+    .promise-lead strong {
+      display: block;
+      color: #7A6530;
+      font-family: var(--font-serif-en);
+      font-size: clamp(3.4rem, 7vw, 6rem);
+      line-height: 0.9;
+    }
+
+    .promise-lead h3 {
+      margin: 18px 0 0;
+      font-family: var(--font-serif-cn);
+      font-size: clamp(1.35rem, 2.8vw, 2.1rem);
+      line-height: 1.25;
+    }
+
+    .promise-lead p {
+      margin: 14px 0 0;
+      color: #4B5563;
+    }
+
+    .promise-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1px;
+      background: rgba(122, 101, 48, 0.2);
+    }
+
+    .promise-item {
+      min-height: 176px;
+      padding: clamp(22px, 3vw, 32px);
+      background: #F8FAFC;
+      transition: transform 0.22s ease, background 0.22s ease, box-shadow 0.22s ease;
+    }
+
+    .promise-item span {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 34px;
+      height: 34px;
+      margin-bottom: 24px;
+      border-radius: 50%;
+      background: var(--gradient-gold);
+      color: var(--color-navy);
+      font-family: var(--font-serif-en);
+      font-weight: 800;
+    }
+
+    .promise-item h4 {
+      margin: 0;
+      color: #111827;
+      font-family: var(--font-serif-cn);
+      font-size: 1.08rem;
+    }
+
+    .promise-item p {
+      margin: 9px 0 0;
+      color: #4B5563;
+      font-size: 0.92rem;
+    }
+
+    .cta {
+      position: relative;
+      z-index: 1;
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: clamp(44px, 7vh, 88px) clamp(20px, 5vw, 72px) clamp(64px, 9vh, 112px);
+    }
+
+    .cta-panel {
+      display: grid;
+      grid-template-columns: minmax(280px, 0.9fr) minmax(300px, 0.74fr);
+      align-items: stretch;
+      gap: clamp(24px, 4vw, 52px);
+      padding: clamp(28px, 4vw, 44px);
+      border: 1px solid rgba(214, 184, 95, 0.34);
+      border-radius: 24px;
+      background: #F8FAFC;
+      color: #111827;
+      box-shadow: 0 22px 70px rgba(0, 0, 0, 0.26);
+    }
+
+    .cta-kicker {
+      margin: 0 0 10px;
+      color: #7A6530;
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+
+    .cta h2 {
+      margin: 0;
+      color: #111827;
+      font-family: var(--font-serif-cn);
+      font-size: clamp(1.5rem, 3vw, 2.35rem);
+      line-height: 1.25;
+    }
+
+    .cta p {
+      max-width: 680px;
+      margin: 12px 0 0;
+      color: #4B5563;
+      font-size: 1rem;
+    }
+
+    .cta-note {
+      display: grid;
+      gap: 12px;
+      margin-top: 28px;
+    }
+
+    .cta-note-row {
+      display: grid;
+      grid-template-columns: 28px minmax(0, 1fr);
+      gap: 12px;
+      align-items: start;
+      color: #374151;
+      font-size: 0.92rem;
+    }
+
+    .cta-note-row span {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: rgba(214, 184, 95, 0.28);
+      color: #7A6530;
+      font-family: var(--font-serif-en);
+      font-weight: 800;
+    }
+
+    .diagnosis-form {
+      display: grid;
+      gap: 16px;
+      padding: clamp(22px, 3vw, 30px);
+      border: 1px solid rgba(38, 50, 71, 0.18);
+      border-radius: 20px;
+      background: #F8FAFC;
+    }
+
+    .field {
+      display: grid;
+      gap: 8px;
+    }
+
+    .field label {
+      color: #374151;
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .field input,
+    .field select,
+    .field textarea {
+      width: 100%;
+      border: 1px solid rgba(38, 50, 71, 0.2);
+      border-radius: 14px;
+      background: #F8FAFC;
+      color: #111827;
+      font: inherit;
+      font-size: 0.96rem;
+      padding: 13px 14px;
+      transition: border-color 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+      appearance: none;
+    }
+
+    .field select {
+      background-image:
+        linear-gradient(45deg, transparent 50%, #7A6530 50%),
+        linear-gradient(135deg, #7A6530 50%, transparent 50%);
+      background-position:
+        calc(100% - 18px) 50%,
+        calc(100% - 12px) 50%;
+      background-repeat: no-repeat;
+      background-size: 6px 6px, 6px 6px;
+      padding-right: 38px;
+    }
+
+    .field input:hover,
+    .field select:hover,
+    .field textarea:hover {
+      border-color: rgba(214, 184, 95, 0.56);
+      background-color: #F4F1EA;
+    }
+
+    .field textarea {
+      min-height: 104px;
+      resize: vertical;
+    }
+
+    .field input:focus,
+    .field select:focus,
+    .field textarea:focus {
+      outline: 0;
+      border-color: rgba(214, 184, 95, 0.84);
+      background: #F4F1EA;
+      box-shadow: 0 0 0 4px rgba(214, 184, 95, 0.16);
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+
+    .diagnosis-form .button {
+      width: 100%;
+      border: 0;
+      cursor: pointer;
+      min-height: 50px;
+    }
+
+    .form-helper {
+      margin: -4px 0 0;
+      color: #6B7280;
+      font-size: 0.8rem;
+      line-height: 1.6;
+    }
+
+    .trust-stat:hover,
+    .service-step:hover,
+    .mentor-node:hover,
+    .student-core:hover,
+    .case-study:hover {
+      transform: translateY(-4px);
+      border-color: rgba(214, 184, 95, 0.52);
+      background: rgba(17, 27, 46, 0.86);
+      box-shadow: 0 24px 64px rgba(0, 0, 0, 0.24);
+    }
+
+    .problem-item:hover {
+      border-color: rgba(214, 184, 95, 0.32);
+      transform: translateX(4px);
+    }
+
+    .process-step:hover {
+      transform: translateY(-4px);
+      background: rgba(17, 27, 46, 0.5);
+    }
+
+    .promise-item:hover {
+      transform: translateY(-3px);
+      background: #F4F1EA;
+      box-shadow: inset 0 0 0 1px rgba(214, 184, 95, 0.28);
+    }
+
+    .trust-stat:focus-visible,
+    .problem-item:focus-visible,
+    .service-step:focus-visible,
+    .mentor-node:focus-visible,
+    .student-core:focus-visible,
+    .process-step:focus-visible,
+    .case-study:focus-visible,
+    .promise-item:focus-visible {
+      outline: 2px solid var(--color-gold);
+      outline-offset: 5px;
+    }
+
+    @media (max-width: 900px) {
+      .nav {
+        align-items: flex-start;
+      }
+
+      .nav-links {
+        display: none;
+      }
+
+      .hero {
+        grid-template-columns: 1fr;
+        padding-top: 42px;
+      }
+
+      .hero-visual {
+        min-height: 340px;
+      }
+
+      .trust-band {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .trust-stat:nth-child(2) {
+        border-right: 0;
+      }
+
+      .trust-stat:nth-child(-n + 2) {
+        border-bottom: 1px solid rgba(227, 231, 234, 0.1);
+      }
+
+      .problem-section {
+        grid-template-columns: 1fr;
+      }
+
+      .problem-aside {
+        position: static;
+      }
+
+      .service-path {
+        grid-template-columns: 1fr;
+        gap: 18px;
+      }
+
+      .service-path::before {
+        left: 22px;
+        right: auto;
+        top: 28px;
+        bottom: 28px;
+        width: 1px;
+        height: auto;
+        background: linear-gradient(180deg, rgba(214, 184, 95, 0.72), rgba(214, 184, 95, 0.08));
+      }
+
+      .service-step,
+      .service-step:nth-child(2),
+      .service-step:nth-child(3),
+      .service-step:nth-child(4) {
+        min-height: 0;
+        margin-top: 0;
+        padding-left: 74px;
+      }
+
+      .service-index {
+        position: absolute;
+        left: 22px;
+        top: 28px;
+        width: 38px;
+        height: 38px;
+        margin: 0;
+      }
+
+      .mentor-matrix {
+        grid-template-columns: 1fr;
+      }
+
+      .mentor-node::after {
+        display: none;
+      }
+
+      .student-core {
+        min-height: 230px;
+        border-radius: 28px;
+      }
+
+      .process-timeline {
+        grid-template-columns: 1fr;
+        gap: 18px;
+        padding-top: 0;
+      }
+
+      .process-timeline::before {
+        left: 26px;
+        right: auto;
+        top: 18px;
+        bottom: 18px;
+        width: 1px;
+        height: auto;
+        background: linear-gradient(180deg, rgba(214, 184, 95, 0.72), rgba(214, 184, 95, 0.08));
+      }
+
+      .process-step,
+      .process-step:nth-child(even) {
+        min-height: 0;
+        margin-top: 0;
+        padding: 22px 22px 22px 70px;
+        border: 1px solid rgba(227, 231, 234, 0.1);
+        background: rgba(17, 27, 46, 0.52);
+      }
+
+      .process-step::before {
+        left: 19px;
+        top: 28px;
+      }
+
+      .case-layout {
+        grid-template-columns: 1fr;
+      }
+
+      .promise-panel {
+        grid-template-columns: 1fr;
+      }
+
+      .promise-lead {
+        position: static;
+      }
+
+      .cta-panel {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .brand img {
+        width: 36px;
+      }
+
+      .brand-sub {
+        display: none;
+      }
+
+      .nav .button {
+        min-height: 40px;
+        padding: 0 16px;
+        font-size: 0.86rem;
+      }
+
+      .hero-actions {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .button {
+        width: 100%;
+      }
+
+      .nav .button {
+        width: auto;
+        white-space: nowrap;
+      }
+
+      .hero-visual {
+        min-height: 300px;
+        border-radius: 22px;
+      }
+
+      .content-section {
+        padding-top: 58px;
+        padding-bottom: 58px;
+      }
+
+      .trust-band {
+        grid-template-columns: 1fr;
+      }
+
+      .trust-stat,
+      .trust-stat:nth-child(2) {
+        min-height: 0;
+        border-right: 0;
+        border-bottom: 1px solid rgba(227, 231, 234, 0.1);
+      }
+
+      .trust-stat:last-child {
+        border-bottom: 0;
+      }
+
+      .problem-stack {
+        padding-left: 24px;
+      }
+
+      .problem-item {
+        grid-template-columns: 1fr;
+        gap: 10px;
+      }
+
+      .problem-code {
+        font-size: 1rem;
+      }
+
+      .service-step,
+      .service-step:nth-child(2),
+      .service-step:nth-child(3),
+      .service-step:nth-child(4) {
+        padding: 78px 24px 26px;
+      }
+
+      .service-tag {
+        margin-top: 18px;
+      }
+
+      .case-grid,
+      .promise-grid,
+      .form-row {
+        grid-template-columns: 1fr;
+      }
+
+      .case-study,
+      .promise-panel {
+        border-radius: 20px;
+      }
+
+      .promise-item {
+        min-height: 0;
+      }
+
+      .cta-panel {
+        border-radius: 20px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      *::before,
+      *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        scroll-behavior: auto !important;
+        transition-duration: 0.01ms !important;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page-shell">
+    <nav class="nav" aria-label="主导航">
+      <a class="brand" href="#" aria-label="ASCENDIA 首页">
+        <img src="ASCENDIA-design-system-main/assets/ascendia-logo-mark-transparent.png" alt="ASCENDIA logo">
+        <span class="brand-wordmark">
+          <span class="brand-name">ASCENDIA</span>
+          <span class="brand-sub">Career Studio</span>
+        </span>
+      </a>
+
+      <div class="nav-links" aria-label="页面导航">
+        <a class="nav-link" href="#method">Services</a>
+        <a class="nav-link" href="#process">Process</a>
+        <a class="nav-link" href="#cases">Cases</a>
+        <a class="nav-link" href="#mentors">Mentors</a>
+      </div>
+
+      <a class="button button-primary" href="#diagnosis">预约诊断</a>
+    </nav>
+
+    <main>
+      <section class="hero" aria-labelledby="hero-title">
+        <div>
+          <span class="eyebrow">Boutique Career Studio</span>
+          <h1 id="hero-title">
+            Redefine Your Limits
+            <span>打破职场天花板</span>
+          </h1>
+          <p class="hero-copy">
+            ASCENDIA 为留学生提供结构化求职陪跑：从定位、简历与 LinkedIn、Storybank 到 Mock Interview 和 Networking，把模糊的职业焦虑拆成清晰的行动路径。
+          </p>
+          <div class="hero-actions">
+            <a class="button button-primary" href="#diagnosis">预约 1v1 职业诊断</a>
+            <a class="button button-secondary" href="#method">了解陪跑方法</a>
+          </div>
+        </div>
+
+        <aside class="hero-visual" aria-label="ASCENDIA 品牌视觉">
+          <div class="logo-stage">
+            <img src="ASCENDIA-design-system-main/assets/ascendia-logo-mark-transparent.png" alt="ASCENDIA logo mark">
+          </div>
+          <p class="metric-note">
+            <strong>2v1</strong>
+            主导师负责长期规划，目标岗位导师补齐行业与面试实战。
+          </p>
+        </aside>
+      </section>
+
+      <section class="content-section" id="trust" aria-labelledby="trust-title">
+        <p class="section-kicker">Trust Numbers</p>
+        <h2 class="section-title" id="trust-title">用克制的数据，说明一套被反复验证的求职陪跑方法。</h2>
+        <p class="section-copy">
+          数据不是战报，也不是承诺。它们只说明一件事：当定位、表达、面试和 networking 被系统推进，结果会更可控。
+        </p>
+
+        <div class="trust-band" aria-label="ASCENDIA 核心数据">
+          <div class="trust-stat" tabindex="0">
+            <span class="trust-value">200+</span>
+            <div class="trust-label">成功辅导案例</div>
+            <p class="trust-note">覆盖外企、金融、咨询与商业岗位方向。</p>
+          </div>
+          <div class="trust-stat" tabindex="0">
+            <span class="trust-value">92%</span>
+            <div class="trust-label">上岸率</div>
+            <p class="trust-note">以阶段目标和申请节奏共同追踪。</p>
+          </div>
+          <div class="trust-stat" tabindex="0">
+            <span class="trust-value">180%</span>
+            <div class="trust-label">人均 OFFER 率</div>
+            <p class="trust-note">强调岗位匹配，而不是盲目海投。</p>
+          </div>
+          <div class="trust-stat" tabindex="0">
+            <span class="trust-value">2v1</span>
+            <div class="trust-label">导师矩阵</div>
+            <p class="trust-note">长期规划与目标岗位实战并行。</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="content-section problem-section" aria-labelledby="problem-title">
+        <div class="problem-aside">
+          <p class="section-kicker">Problem Section</p>
+          <h2 class="section-title" id="problem-title">多数求职卡住，不是因为不努力，而是路径没有被拆清楚。</h2>
+          <p class="section-copy">
+            ASCENDIA 先帮学生识别真正的阻塞点，再决定该重做表达、补齐故事，还是调整 networking 推进方式。
+          </p>
+        </div>
+
+        <div class="problem-stack" aria-label="留学生求职常见痛点">
+          <div class="problem-item" tabindex="0">
+            <span class="problem-code">01</span>
+            <div>
+              <h3>方向模糊</h3>
+              <p>目标行业、岗位和申请顺序没有建立判断标准，导致每一步都像临时选择。</p>
+            </div>
+          </div>
+          <div class="problem-item" tabindex="0">
+            <span class="problem-code">02</span>
+            <div>
+              <h3>简历表达弱</h3>
+              <p>经历本身不差，但没有翻译成目标岗位能理解的能力证据。</p>
+            </div>
+          </div>
+          <div class="problem-item" tabindex="0">
+            <span class="problem-code">03</span>
+            <div>
+              <h3>面试故事散</h3>
+              <p>项目、实习和校园经历没有沉淀成可复用的 Storybank，回答缺少结构。</p>
+            </div>
+          </div>
+          <div class="problem-item" tabindex="0">
+            <span class="problem-code">04</span>
+            <div>
+              <h3>Networking 不会推进</h3>
+              <p>不知道如何开场、跟进和转化信息，沟通停留在一次性 cold message。</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="content-section" id="method" aria-labelledby="service-title">
+        <p class="section-kicker">Service System</p>
+        <h2 class="section-title" id="service-title">不是把服务堆满，而是把求职路径排成可执行的顺序。</h2>
+        <p class="section-copy">
+          从材料表达、故事资产到面试和连接机会，每个模块都对应一个明确的交付物与下一步动作。
+        </p>
+
+        <div class="service-path" aria-label="ASCENDIA 服务体系">
+          <div class="service-step" tabindex="0">
+            <span class="service-index">01</span>
+            <h3>简历与 LinkedIn 重塑</h3>
+            <p>把经历重新组织成目标岗位能读懂的能力证据，统一简历与线上职业叙事。</p>
+            <span class="service-tag">Positioning</span>
+          </div>
+          <div class="service-step" tabindex="0">
+            <span class="service-index">02</span>
+            <h3>Storybank 搭建</h3>
+            <p>沉淀项目、冲突、影响力和领导力故事，让面试回答有结构、有细节。</p>
+            <span class="service-tag">Narrative</span>
+          </div>
+          <div class="service-step" tabindex="0">
+            <span class="service-index">03</span>
+            <h3>Mock Interview</h3>
+            <p>围绕目标岗位进行高压模拟，修正回答逻辑、语速、追问和业务判断。</p>
+            <span class="service-tag">Practice</span>
+          </div>
+          <div class="service-step" tabindex="0">
+            <span class="service-index">04</span>
+            <h3>Networking 实战</h3>
+            <p>设计触达、跟进和 referral 节奏，把信息访谈变成真实机会入口。</p>
+            <span class="service-tag">Connect</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="content-section" id="mentors" aria-labelledby="mentor-title">
+        <p class="section-kicker">2v1 Mentor Matrix</p>
+        <h2 class="section-title" id="mentor-title">一个人看全局，一个人补行业深度，学生始终在执行闭环里。</h2>
+        <p class="section-copy">
+          2v1 不是更多会议，而是更清楚的分工：长期规划、岗位实战和学生执行节奏被放在同一张推进图上。
+        </p>
+
+        <div class="mentor-matrix" aria-label="2v1 导师矩阵关系">
+          <div class="mentor-node" tabindex="0">
+            <span class="node-label">Lead Mentor</span>
+            <h3>主导师</h3>
+            <p>负责职业定位、申请节奏、材料策略和每次会议后的 next step 追踪。</p>
+          </div>
+
+          <div class="student-core" tabindex="0">
+            <div>
+              <strong>2v1</strong>
+              <span>学员执行闭环</span>
+              <p>反馈、迭代、推进申请动作。</p>
+            </div>
+          </div>
+
+          <div class="mentor-node" tabindex="0">
+            <span class="node-label">Role Mentor</span>
+            <h3>目标岗位导师</h3>
+            <p>提供行业语境、面试追问、case 判断和 networking 实战经验。</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="content-section" id="process" aria-labelledby="process-title">
+        <p class="section-kicker">Process Timeline</p>
+        <h2 class="section-title" id="process-title">从第一次诊断到机会转化，每一步都有明确的判断和交付。</h2>
+        <p class="section-copy">
+          ASCENDIA 的陪跑不是把任务塞满，而是让学生知道当下最该推进什么、为什么推进、如何判断是否有效。
+        </p>
+
+        <div class="process-timeline" aria-label="ASCENDIA 求职流程">
+          <div class="process-step" tabindex="0">
+            <span class="process-word">Diagnose</span>
+            <h3 class="process-name">识别阻塞点</h3>
+            <p>梳理背景、目标与时间线，先判断问题出在定位、表达还是推进节奏。</p>
+          </div>
+          <div class="process-step" tabindex="0">
+            <span class="process-word">Position</span>
+            <h3 class="process-name">确定目标路径</h3>
+            <p>明确行业、岗位和申请优先级，把选择题变成可执行的申请组合。</p>
+          </div>
+          <div class="process-step" tabindex="0">
+            <span class="process-word">Rebuild</span>
+            <h3 class="process-name">重塑材料表达</h3>
+            <p>重构简历、LinkedIn 和核心经历，让能力证据与目标岗位对齐。</p>
+          </div>
+          <div class="process-step" tabindex="0">
+            <span class="process-word">Practice</span>
+            <h3 class="process-name">训练面试叙事</h3>
+            <p>用 Storybank 和 mock interview 反复校准回答结构、追问和细节。</p>
+          </div>
+          <div class="process-step" tabindex="0">
+            <span class="process-word">Connect</span>
+            <h3 class="process-name">推进 Networking</h3>
+            <p>设计触达、跟进和信息访谈节奏，让连接变成真实机会入口。</p>
+          </div>
+          <div class="process-step" tabindex="0">
+            <span class="process-word">Convert</span>
+            <h3 class="process-name">复盘并转化机会</h3>
+            <p>根据反馈调整策略，持续推进下一轮申请、面试或 referral 动作。</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="content-section" id="cases" aria-labelledby="cases-title">
+        <p class="section-kicker">Case Studies</p>
+        <h2 class="section-title" id="cases-title">成功案例不做战报，重点呈现问题如何被拆解。</h2>
+        <p class="section-copy">
+          每个学生的背景不同，真正有价值的是看清当时的约束、选择和推进方式。
+        </p>
+
+        <div class="case-layout" aria-label="ASCENDIA 成功案例">
+          <article class="case-study case-featured" tabindex="0">
+            <div>
+              <div class="case-id">01</div>
+              <h3>英国硕士，目标咨询岗，从经历分散到拿到结构化面试表达</h3>
+            </div>
+            <div class="case-grid">
+              <div class="case-field">
+                <span>Background</span>
+                <p>商科硕士，实习横跨市场、咨询项目和校园社团。</p>
+              </div>
+              <div class="case-field">
+                <span>Problem</span>
+                <p>经历不少，但无法说明自己为什么适合咨询。</p>
+              </div>
+              <div class="case-field">
+                <span>Strategy</span>
+                <p>重建项目叙事，提炼问题拆解、stakeholder 和 impact 证据。</p>
+              </div>
+              <div class="case-field">
+                <span>Result</span>
+                <p class="case-result">进入目标咨询方向面试，并完成多轮 case mock 迭代。</p>
+              </div>
+            </div>
+          </article>
+
+          <div class="case-deck">
+            <article class="case-study" tabindex="0">
+              <div class="case-id">02</div>
+              <h3>北美本科，金融方向，补齐 networking 与面试节奏</h3>
+              <div class="case-grid">
+                <div class="case-field">
+                  <span>Background</span>
+                  <p>量化课程强，有一段校内投资研究经历。</p>
+                </div>
+                <div class="case-field">
+                  <span>Problem</span>
+                  <p>简历偏学术，networking 跟进断层。</p>
+                </div>
+                <div class="case-field">
+                  <span>Strategy</span>
+                  <p>改写交易与研究表达，建立每周 outreach 和复盘节奏。</p>
+                </div>
+                <div class="case-field">
+                  <span>Result</span>
+                  <p class="case-result">获得更多 coffee chat 回应，并进入目标岗位流程。</p>
+                </div>
+              </div>
+            </article>
+
+            <article class="case-study" tabindex="0">
+              <div class="case-id">03</div>
+              <h3>澳洲研究生，商业分析方向，把项目经历转成岗位语言</h3>
+              <div class="case-grid">
+                <div class="case-field">
+                  <span>Background</span>
+                  <p>数据分析项目扎实，但缺少业务问题表达。</p>
+                </div>
+                <div class="case-field">
+                  <span>Problem</span>
+                  <p>面试回答停留在工具层，无法讲清商业判断。</p>
+                </div>
+                <div class="case-field">
+                  <span>Strategy</span>
+                  <p>用 Storybank 拆解指标、假设、洞察和行动建议。</p>
+                </div>
+                <div class="case-field">
+                  <span>Result</span>
+                  <p class="case-result">回答更贴近业务场景，后续面试反馈明显稳定。</p>
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="content-section" id="promise" aria-labelledby="promise-title">
+        <p class="section-kicker">Promise Section</p>
+        <h2 class="section-title" id="promise-title">陪跑的价值，来自稳定交付和清楚的 next step。</h2>
+        <p class="section-copy">
+          我们不制造紧张感，而是把时间线、材料、面试和行动反馈放进一个可追踪的系统里。
+        </p>
+
+        <div class="promise-panel" aria-label="ASCENDIA 服务承诺">
+          <div class="promise-lead">
+            <strong>04</strong>
+            <h3>每次推进，都要留下可执行的下一步。</h3>
+            <p>学生不需要猜自己该做什么；每一次 call 后，都会看到优先级、负责人和交付节点。</p>
+          </div>
+
+          <div class="promise-grid">
+            <div class="promise-item" tabindex="0">
+              <span>1</span>
+              <h4>首次 call 后 3 天内交付</h4>
+              <p>输出初步路径、材料优先级和当前风险判断。</p>
+            </div>
+            <div class="promise-item" tabindex="0">
+              <span>2</span>
+              <h4>工作时间 3 小时内响应</h4>
+              <p>关键节点不悬空，让学生知道问题正在被处理。</p>
+            </div>
+            <div class="promise-item" tabindex="0">
+              <span>3</span>
+              <h4>每次会议确认 Next Step</h4>
+              <p>把建议落到具体任务，避免会后只剩模糊方向。</p>
+            </div>
+            <div class="promise-item" tabindex="0">
+              <span>4</span>
+              <h4>进度预警表追踪</h4>
+              <p>及时看见申请节奏、面试反馈和 networking 推进风险。</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="cta" id="diagnosis" aria-labelledby="cta-title">
+        <div class="cta-panel">
+          <div>
+            <p class="cta-kicker">Final CTA · Free 1v1 Diagnosis</p>
+            <h2 id="cta-title">申请前，先做一次顶层设计诊断。</h2>
+            <p>
+              告诉我们你的学校、年级和目标方向。我们会先帮你判断：当前最该补的是定位、材料、面试，还是 networking 节奏。
+            </p>
+            <div class="cta-note" aria-label="诊断说明">
+              <div class="cta-note-row">
+                <span>1</span>
+                <div>先看路径，不急着推服务。</div>
+              </div>
+              <div class="cta-note-row">
+                <span>2</span>
+                <div>诊断重点是优先级、短板和下一步，而不是夸大承诺。</div>
+              </div>
+            </div>
+          </div>
+
+          <form class="diagnosis-form" action="mailto:hello@ascendia.example" method="post" enctype="text/plain">
+            <div class="field">
+              <label for="school">学校</label>
+              <input id="school" name="school" type="text" placeholder="例如：UCL / NYU / University of Melbourne" required>
+            </div>
+            <div class="form-row">
+              <div class="field">
+                <label for="grade">年级</label>
+                <select id="grade" name="grade" required>
+                  <option value="">请选择</option>
+                  <option>本科大一 / 大二</option>
+                  <option>本科大三 / 大四</option>
+                  <option>硕士在读</option>
+                  <option>毕业 0-2 年</option>
+                </select>
+              </div>
+              <div class="field">
+                <label for="target">目标方向</label>
+                <input id="target" name="target" type="text" placeholder="例如：咨询 / 金融 / 商分" required>
+              </div>
+            </div>
+            <div class="field">
+              <label for="context">当前最卡的地方</label>
+              <textarea id="context" name="context" placeholder="可以简单写：定位不清、简历弱、面试没思路、networking 推不动等。"></textarea>
+            </div>
+            <button class="button button-primary" type="submit">提交诊断信息</button>
+            <p class="form-helper">提交会调用本机邮件客户端；如果没有弹出邮件窗口，也可以直接发送信息到 hello@ascendia.example。</p>
+          </form>
+        </div>
+      </section>
+    </main>
+  </div>
+</body>
+</html>
