@@ -1,9 +1,1331 @@
-<!-- ... existing code ... -->
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="ASCENDIA 留学生高端求职工作室。拆解求职逻辑，让每一分努力不白费。">
+  <title>ASCENDIA | 拆解求职逻辑，让每一分努力不白费</title>
+  <style>
+    :root {
+      --navy: #08111f;
+      --navy-2: #101b2d;
+      --navy-3: #17253c;
+      --gold: #d7b866;
+      --gold-2: #f0d88b;
+      --ivory: #f6f0df;
+      --ivory-2: #fffaf0;
+      --silver: #d8dee8;
+      --muted: #9daabd;
+      --line: rgba(215, 184, 102, 0.24);
+      --line-soft: rgba(216, 222, 232, 0.13);
+      --shadow: 0 28px 80px rgba(0, 0, 0, 0.35);
+      --radius: 18px;
+      --max: 1180px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      color: var(--silver);
+      background:
+        radial-gradient(circle at 18% 0%, rgba(215, 184, 102, 0.12), transparent 34%),
+        linear-gradient(145deg, var(--navy) 0%, #0b1424 42%, #111d30 100%);
+      font-family: "Noto Sans SC", "PingFang SC", "Microsoft YaHei", "Helvetica Neue", Arial, sans-serif;
+      line-height: 1.75;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      z-index: -1;
+      pointer-events: none;
+      background:
+        linear-gradient(90deg, rgba(215, 184, 102, 0.055) 1px, transparent 1px),
+        linear-gradient(180deg, rgba(216, 222, 232, 0.035) 1px, transparent 1px);
+      background-size: 84px 84px;
+      mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.72), transparent 72%);
+    }
+
+    ::selection {
+      color: var(--navy);
+      background: var(--gold);
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+    }
+
+    .shell {
+      width: min(var(--max), calc(100% - 40px));
+      margin: 0 auto;
+    }
+
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      border-bottom: 1px solid rgba(216, 222, 232, 0.08);
+      background: rgba(8, 17, 31, 0.82);
+      backdrop-filter: blur(18px);
+    }
+
+    .nav-inner {
+      width: min(var(--max), calc(100% - 40px));
+      min-height: 78px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      min-width: 0;
+    }
+
+    .brand img {
+      width: 42px;
+      height: auto;
+    }
+
+    .brand-text {
+      display: grid;
+      line-height: 1.15;
+    }
+
+    .brand-name {
+      color: var(--ivory-2);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 1.08rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+    }
+
+    .brand-sub {
+      color: var(--muted);
+      font-size: 0.72rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 26px;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    .nav-links a {
+      background-image: linear-gradient(var(--gold), var(--gold));
+      background-repeat: no-repeat;
+      background-position: 0 100%;
+      background-size: 0 1px;
+      transition: color 0.22s ease, background-size 0.22s ease;
+    }
+
+    .nav-links a:hover,
+    .nav-links a:focus-visible {
+      color: var(--ivory-2);
+      background-size: 100% 1px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 46px;
+      padding: 0 22px;
+      border: 1px solid transparent;
+      border-radius: 999px;
+      font: inherit;
+      font-size: 0.95rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: transform 0.22s ease, box-shadow 0.22s ease, border-color 0.22s ease, background 0.22s ease;
+    }
+
+    .btn:hover,
+    .btn:focus-visible {
+      transform: translateY(-2px);
+    }
+
+    .btn-primary {
+      color: var(--navy);
+      background: linear-gradient(135deg, var(--gold), var(--gold-2));
+      box-shadow: 0 16px 34px rgba(215, 184, 102, 0.23);
+    }
+
+    .btn-secondary {
+      color: var(--ivory);
+      border-color: var(--line);
+      background: rgba(255, 255, 255, 0.04);
+    }
+
+    .hero {
+      padding: clamp(70px, 10vw, 132px) 0 clamp(58px, 8vw, 92px);
+      display: grid;
+      grid-template-columns: minmax(0, 1.12fr) minmax(300px, 0.78fr);
+      align-items: center;
+      gap: clamp(38px, 7vw, 92px);
+    }
+
+    .eyebrow,
+    .section-label,
+    .small-label {
+      color: var(--gold-2);
+      font-size: 0.76rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 22px;
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 42px;
+      height: 1px;
+      background: var(--gold);
+    }
+
+    h1,
+    h2,
+    h3,
+    p {
+      margin-top: 0;
+    }
+
+    h1,
+    h2,
+    h3 {
+      color: var(--ivory-2);
+      font-family: "Songti SC", "Noto Serif SC", "SimSun", Georgia, serif;
+      font-weight: 700;
+      letter-spacing: 0;
+    }
+
+    h1 {
+      max-width: 780px;
+      margin-bottom: 24px;
+      font-size: clamp(2.6rem, 6vw, 5.9rem);
+      line-height: 1.05;
+    }
+
+    .hero-copy {
+      max-width: 700px;
+      margin-bottom: 0;
+      color: var(--silver);
+      font-size: clamp(1rem, 1.5vw, 1.18rem);
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-top: 34px;
+    }
+
+    .hero-note {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1px;
+      margin-top: 44px;
+      overflow: hidden;
+      border: 1px solid var(--line-soft);
+      border-radius: var(--radius);
+      background: rgba(216, 222, 232, 0.09);
+    }
+
+    .hero-note div {
+      min-height: 104px;
+      padding: 20px;
+      background: rgba(16, 27, 45, 0.72);
+    }
+
+    .hero-note strong {
+      display: block;
+      margin-bottom: 6px;
+      color: var(--gold);
+      font-family: Georgia, serif;
+      font-size: 1.35rem;
+      line-height: 1.1;
+    }
+
+    .hero-note span {
+      color: var(--muted);
+      font-size: 0.86rem;
+    }
+
+    .hero-card {
+      position: relative;
+      overflow: hidden;
+      min-height: 500px;
+      padding: clamp(28px, 4vw, 44px);
+      border: 1px solid var(--line);
+      border-radius: 28px;
+      background:
+        linear-gradient(160deg, rgba(23, 37, 60, 0.94), rgba(8, 17, 31, 0.97)),
+        var(--navy-2);
+      box-shadow: var(--shadow);
+    }
+
+    .hero-card::before {
+      content: "";
+      position: absolute;
+      inset: 28px;
+      border: 1px solid rgba(215, 184, 102, 0.24);
+      border-radius: 20px;
+      pointer-events: none;
+    }
+
+    .logo-panel {
+      position: relative;
+      z-index: 1;
+      min-height: 310px;
+      display: grid;
+      place-items: center;
+    }
+
+    .logo-panel img {
+      width: min(78%, 310px);
+      filter: drop-shadow(0 24px 42px rgba(0, 0, 0, 0.34));
+    }
+
+    .hero-card-bottom {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      gap: 16px;
+      margin-top: 16px;
+    }
+
+    .diagnosis-row {
+      display: grid;
+      grid-template-columns: 40px minmax(0, 1fr);
+      gap: 14px;
+      align-items: start;
+      padding: 16px 0;
+      border-top: 1px solid rgba(216, 222, 232, 0.11);
+    }
+
+    .diagnosis-row span {
+      display: inline-grid;
+      place-items: center;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      color: var(--navy);
+      background: linear-gradient(135deg, var(--gold), var(--gold-2));
+      font-family: Georgia, serif;
+      font-weight: 700;
+    }
+
+    .diagnosis-row h3 {
+      margin-bottom: 4px;
+      font-size: 1.05rem;
+    }
+
+    .diagnosis-row p {
+      margin-bottom: 0;
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    section {
+      padding: clamp(64px, 9vw, 118px) 0;
+    }
+
+    .section-head {
+      display: grid;
+      grid-template-columns: minmax(240px, 0.42fr) minmax(0, 0.75fr);
+      gap: clamp(28px, 6vw, 80px);
+      align-items: start;
+      margin-bottom: clamp(34px, 5vw, 66px);
+    }
+
+    .section-head h2 {
+      margin-bottom: 0;
+      font-size: clamp(1.8rem, 4vw, 3.2rem);
+      line-height: 1.18;
+    }
+
+    .section-head p {
+      color: var(--muted);
+      font-size: 1rem;
+    }
+
+    .metrics {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+      background: rgba(16, 27, 45, 0.5);
+    }
+
+    .metric {
+      min-height: 180px;
+      padding: clamp(22px, 3vw, 34px);
+      border-right: 1px solid rgba(216, 222, 232, 0.1);
+    }
+
+    .metric:last-child {
+      border-right: 0;
+    }
+
+    .metric strong {
+      display: block;
+      color: var(--gold);
+      font-family: Georgia, serif;
+      font-size: clamp(2.5rem, 5vw, 4.8rem);
+      line-height: 0.95;
+    }
+
+    .metric span {
+      display: block;
+      margin-top: 18px;
+      color: var(--ivory-2);
+      font-weight: 700;
+    }
+
+    .metric p {
+      margin: 8px 0 0;
+      color: var(--muted);
+      font-size: 0.88rem;
+    }
+
+    .pain-grid,
+    .support-grid,
+    .commitment-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1px;
+      overflow: hidden;
+      border: 1px solid var(--line-soft);
+      border-radius: var(--radius);
+      background: rgba(216, 222, 232, 0.1);
+    }
+
+    .pain-card,
+    .support-card,
+    .commitment-card {
+      min-height: 250px;
+      padding: clamp(24px, 3vw, 34px);
+      background: rgba(16, 27, 45, 0.78);
+    }
+
+    .number {
+      display: block;
+      margin-bottom: 28px;
+      color: rgba(215, 184, 102, 0.7);
+      font-family: Georgia, serif;
+      font-size: 1.35rem;
+      font-weight: 700;
+    }
+
+    .pain-card h3,
+    .support-card h3,
+    .commitment-card h3,
+    .system-card h3,
+    .case-card h3 {
+      margin-bottom: 12px;
+      font-size: clamp(1.12rem, 1.8vw, 1.45rem);
+      line-height: 1.35;
+    }
+
+    .pain-card p,
+    .support-card p,
+    .commitment-card p,
+    .system-card p,
+    .case-card p {
+      margin-bottom: 0;
+      color: var(--muted);
+      font-size: 0.94rem;
+    }
+
+    .systems {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: clamp(18px, 3vw, 28px);
+      align-items: stretch;
+    }
+
+    .system-card {
+      position: relative;
+      min-height: 390px;
+      padding: clamp(28px, 3vw, 40px);
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      background:
+        linear-gradient(180deg, rgba(23, 37, 60, 0.92), rgba(10, 20, 36, 0.94));
+      box-shadow: 0 22px 58px rgba(0, 0, 0, 0.2);
+    }
+
+    .system-card:nth-child(2) {
+      margin-top: 34px;
+    }
+
+    .system-card:nth-child(3) {
+      margin-top: 68px;
+    }
+
+    .system-card .small-label {
+      display: block;
+      margin-bottom: 32px;
+    }
+
+    .system-card h3 {
+      font-size: clamp(1.35rem, 2.4vw, 2rem);
+    }
+
+    .system-list {
+      display: grid;
+      gap: 11px;
+      margin-top: 28px;
+    }
+
+    .system-list div {
+      padding: 12px 0;
+      border-top: 1px solid rgba(216, 222, 232, 0.1);
+      color: var(--silver);
+      font-size: 0.92rem;
+    }
+
+    .process {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .process-step {
+      position: relative;
+      min-height: 250px;
+      padding: 30px 20px;
+      border-right: 1px solid rgba(216, 222, 232, 0.1);
+    }
+
+    .process-step:last-child {
+      border-right: 0;
+    }
+
+    .process-step::before {
+      content: "";
+      display: block;
+      width: 14px;
+      height: 14px;
+      margin-bottom: 32px;
+      border: 2px solid var(--gold);
+      border-radius: 50%;
+      box-shadow: 0 0 0 8px rgba(215, 184, 102, 0.08);
+    }
+
+    .process-step strong {
+      display: block;
+      color: var(--gold);
+      font-family: Georgia, serif;
+      font-size: 1.3rem;
+      line-height: 1.1;
+    }
+
+    .process-step h3 {
+      margin: 12px 0 10px;
+      font-size: 1.04rem;
+    }
+
+    .process-step p {
+      color: var(--muted);
+      font-size: 0.86rem;
+    }
+
+    .case-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+      gap: 1px;
+      overflow: hidden;
+      border: 1px solid var(--line-soft);
+      border-radius: 24px;
+      background: rgba(216, 222, 232, 0.1);
+    }
+
+    .case-card {
+      padding: clamp(28px, 4vw, 48px);
+      background: rgba(16, 27, 45, 0.82);
+    }
+
+    .case-card.featured {
+      display: grid;
+      align-content: space-between;
+      min-height: 460px;
+      background:
+        linear-gradient(145deg, rgba(23, 37, 60, 0.94), rgba(8, 17, 31, 0.96));
+    }
+
+    .case-id {
+      display: block;
+      margin-bottom: 24px;
+      color: rgba(215, 184, 102, 0.66);
+      font-family: Georgia, serif;
+      font-size: clamp(3.6rem, 7vw, 6rem);
+      line-height: 0.9;
+    }
+
+    .case-fields {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1px;
+      margin-top: 28px;
+      background: rgba(216, 222, 232, 0.1);
+    }
+
+    .case-field {
+      padding: 17px;
+      background: rgba(8, 17, 31, 0.56);
+    }
+
+    .case-field span {
+      display: block;
+      color: var(--gold-2);
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .case-field p {
+      margin-top: 7px;
+      font-size: 0.84rem;
+    }
+
+    .case-stack {
+      display: grid;
+      gap: 1px;
+    }
+
+    .commitment-panel {
+      padding: clamp(30px, 5vw, 56px);
+      border: 1px solid rgba(215, 184, 102, 0.34);
+      border-radius: 24px;
+      background: var(--ivory);
+      color: #1a2231;
+      box-shadow: var(--shadow);
+    }
+
+    .commitment-panel .section-label {
+      color: #8a6d2b;
+    }
+
+    .commitment-panel h2,
+    .commitment-panel h3 {
+      color: #111827;
+    }
+
+    .commitment-panel p,
+    .commitment-panel .commitment-card p {
+      color: #4b5563;
+    }
+
+    .commitment-grid {
+      margin-top: 34px;
+      border-color: rgba(138, 109, 43, 0.18);
+      background: rgba(138, 109, 43, 0.18);
+    }
+
+    .commitment-card {
+      background: var(--ivory-2);
+    }
+
+    .commitment-card .number {
+      color: #8a6d2b;
+    }
+
+    .cta {
+      padding-bottom: clamp(74px, 10vw, 130px);
+    }
+
+    .cta-panel {
+      display: grid;
+      grid-template-columns: minmax(0, 0.92fr) minmax(320px, 0.78fr);
+      gap: clamp(28px, 5vw, 60px);
+      align-items: stretch;
+      padding: clamp(30px, 5vw, 56px);
+      border: 1px solid var(--line);
+      border-radius: 28px;
+      background:
+        linear-gradient(145deg, rgba(23, 37, 60, 0.92), rgba(8, 17, 31, 0.96));
+      box-shadow: var(--shadow);
+    }
+
+    .cta h2 {
+      margin-bottom: 16px;
+      font-size: clamp(1.85rem, 4vw, 3rem);
+      line-height: 1.2;
+    }
+
+    .cta p {
+      color: var(--muted);
+    }
+
+    .cta-list {
+      display: grid;
+      gap: 14px;
+      margin-top: 28px;
+    }
+
+    .cta-list div {
+      display: grid;
+      grid-template-columns: 34px minmax(0, 1fr);
+      gap: 12px;
+      align-items: start;
+      color: var(--silver);
+    }
+
+    .cta-list span {
+      display: grid;
+      place-items: center;
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      color: var(--navy);
+      background: var(--gold);
+      font-family: Georgia, serif;
+      font-weight: 700;
+    }
+
+    .form {
+      display: grid;
+      gap: 15px;
+      padding: clamp(22px, 3vw, 32px);
+      border: 1px solid rgba(216, 222, 232, 0.12);
+      border-radius: 20px;
+      background: rgba(8, 17, 31, 0.46);
+    }
+
+    .field {
+      display: grid;
+      gap: 7px;
+    }
+
+    .field label {
+      color: var(--gold-2);
+      font-size: 0.76rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .field input,
+    .field select,
+    .field textarea {
+      width: 100%;
+      min-height: 48px;
+      padding: 12px 14px;
+      border: 1px solid rgba(216, 222, 232, 0.18);
+      border-radius: 12px;
+      color: var(--ivory-2);
+      background: rgba(255, 255, 255, 0.045);
+      font: inherit;
+      outline: 0;
+      transition: border-color 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+    }
+
+    .field textarea {
+      min-height: 108px;
+      resize: vertical;
+    }
+
+    .field input::placeholder,
+    .field textarea::placeholder {
+      color: rgba(216, 222, 232, 0.48);
+    }
+
+    .field input:focus,
+    .field select:focus,
+    .field textarea:focus {
+      border-color: rgba(215, 184, 102, 0.72);
+      background: rgba(255, 255, 255, 0.07);
+      box-shadow: 0 0 0 4px rgba(215, 184, 102, 0.12);
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+
+    .form .btn {
+      width: 100%;
+      border: 0;
+    }
+
+    .form-helper {
+      margin: 0;
+      color: rgba(216, 222, 232, 0.62);
+      font-size: 0.8rem;
+    }
+
+    .form-status {
+      min-height: 24px;
+      margin: 0;
+      color: var(--gold-2);
+      font-size: 0.88rem;
+    }
+
+    .footer {
+      padding: 34px 0;
+      border-top: 1px solid rgba(216, 222, 232, 0.08);
+      color: var(--muted);
+      font-size: 0.84rem;
+    }
+
+    @media (max-width: 1040px) {
+      .hero,
+      .section-head,
+      .case-layout,
+      .cta-panel {
+        grid-template-columns: 1fr;
+      }
+
+      .metrics,
+      .pain-grid,
+      .support-grid,
+      .commitment-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .systems {
+        grid-template-columns: 1fr;
+      }
+
+      .system-card,
+      .system-card:nth-child(2),
+      .system-card:nth-child(3) {
+        min-height: auto;
+        margin-top: 0;
+      }
+
+      .process {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    @media (max-width: 760px) {
+      .shell,
+      .nav-inner {
+        width: min(100% - 28px, var(--max));
+      }
+
+      .nav-inner {
+        min-height: 70px;
+      }
+
+      .nav-links {
+        display: none;
+      }
+
+      .nav .btn {
+        padding: 0 15px;
+        font-size: 0.84rem;
+      }
+
+      .brand img {
+        width: 36px;
+      }
+
+      .brand-name {
+        font-size: 0.96rem;
+      }
+
+      .brand-sub {
+        font-size: 0.66rem;
+      }
+
+      .hero {
+        padding-top: 48px;
+      }
+
+      .hero-note,
+      .metrics,
+      .pain-grid,
+      .support-grid,
+      .commitment-grid,
+      .process,
+      .case-fields,
+      .form-row {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-card {
+        min-height: auto;
+        border-radius: 22px;
+      }
+
+      .logo-panel {
+        min-height: 230px;
+      }
+
+      .process-step,
+      .metric,
+      .pain-card,
+      .support-card,
+      .commitment-card {
+        min-height: auto;
+      }
+
+      .metric,
+      .process-step {
+        border-right: 0;
+        border-bottom: 1px solid rgba(216, 222, 232, 0.1);
+      }
+
+      .metric:last-child,
+      .process-step:last-child {
+        border-bottom: 0;
+      }
+    }
+  </style>
+</head>
 <body>
-<!-- Slide 1: Title_Slide -->
-<div class="slide-container" id="slide1">
-<div class="title-layout">
-<img alt="Ascendia Logo" src="77fd948eb9746d56d627512aaac6b84.jpg" style="height: 140px; margin-bottom: 20px; border-radius: 8px;"/>
-<hr/>
-<p class="subtitle">ASCENDIA 专注于留学生高端求职规划与全流程陪跑。</p>
-<!-- ... existing code ... --></div></div></body>
+  <header class="nav">
+    <div class="nav-inner">
+      <a class="brand" href="#top" aria-label="ASCENDIA 首页">
+        <img src="./assets/ascendia-logo.png" alt="ASCENDIA logo">
+        <span class="brand-text">
+          <span class="brand-name">ASCENDIA</span>
+          <span class="brand-sub">Career Studio</span>
+        </span>
+      </a>
+      <nav class="nav-links" aria-label="主导航">
+        <a href="#systems">核心系统</a>
+        <a href="#process">服务流程</a>
+        <a href="#proof">案例拆解</a>
+        <a href="#diagnosis">预约体检</a>
+      </nav>
+      <a class="btn btn-primary" href="#diagnosis">预约求职逻辑体检</a>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="shell hero" aria-labelledby="hero-title">
+      <div>
+        <span class="eyebrow">Premium Career Studio</span>
+        <h1 id="hero-title">拆解求职逻辑，让每一分努力不白费。</h1>
+        <p class="hero-copy">
+          ASCENDIA 面向留学生提供高端求职陪跑。我们先帮你看清卡点，再把方向、岗位逻辑、材料表达、面试证据和 networking 节奏排成可执行的路径。
+        </p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#diagnosis">预约求职逻辑体检</a>
+          <a class="btn btn-secondary" href="#systems">查看三大核心系统</a>
+        </div>
+        <div class="hero-note" aria-label="ASCENDIA 核心方法">
+          <div>
+            <strong>01</strong>
+            <span>先判断真正阻塞点，避免在低效任务里消耗精力。</span>
+          </div>
+          <div>
+            <strong>02</strong>
+            <span>把每周行动排出优先级，让努力有方向、有复盘。</span>
+          </div>
+          <div>
+            <strong>03</strong>
+            <span>用 2v1 导师矩阵连接长期策略与岗位实战。</span>
+          </div>
+        </div>
+      </div>
+
+      <aside class="hero-card" aria-label="ASCENDIA 求职逻辑体检预览">
+        <div class="logo-panel">
+          <img src="./assets/ascendia-logo.png" alt="ASCENDIA logo">
+        </div>
+        <div class="hero-card-bottom">
+          <div class="diagnosis-row">
+            <span>1</span>
+            <div>
+              <h3>求职逻辑体检</h3>
+              <p>看清问题在定位、材料、面试、networking 还是时间线。</p>
+            </div>
+          </div>
+          <div class="diagnosis-row">
+            <span>2</span>
+            <div>
+              <h3>努力 ROI 地图</h3>
+              <p>把当下最值得做的动作排到前面，减少无效忙碌。</p>
+            </div>
+          </div>
+          <div class="diagnosis-row">
+            <span>3</span>
+            <div>
+              <h3>2v1 导师矩阵</h3>
+              <p>主导师看全局节奏，岗位导师补充行业与面试实战。</p>
+            </div>
+          </div>
+        </div>
+      </aside>
+    </section>
+
+    <section class="shell" aria-labelledby="metrics-title">
+      <div class="section-head">
+        <div>
+          <span class="section-label">Trust Metrics</span>
+        </div>
+        <div>
+          <h2 id="metrics-title">用克制的数据，说明一套可追踪的求职陪跑方法。</h2>
+          <p>数字只作为过程证据，不代表结果承诺。ASCENDIA 更重视每个学生是否知道自己下一步该做什么、为什么做、怎么复盘。</p>
+        </div>
+      </div>
+      <div class="metrics" aria-label="信任数据">
+        <div class="metric">
+          <strong>200+</strong>
+          <span>累计辅导案例</span>
+          <p>覆盖咨询、金融、商业分析、市场与企业职能方向。</p>
+        </div>
+        <div class="metric">
+          <strong>2v1</strong>
+          <span>导师矩阵</span>
+          <p>策略判断与岗位实战分工协作，避免建议停在表面。</p>
+        </div>
+        <div class="metric">
+          <strong>3天</strong>
+          <span>首次体检交付</span>
+          <p>输出卡点判断、努力优先级与下一步行动建议。</p>
+        </div>
+        <div class="metric">
+          <strong>3h</strong>
+          <span>工作时间响应</span>
+          <p>关键节点及时反馈，让推进节奏不悬空。</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="shell" aria-labelledby="pain-title">
+      <div class="section-head">
+        <div>
+          <span class="section-label">Student Pain Points</span>
+        </div>
+        <div>
+          <h2 id="pain-title">很多求职卡点，来自努力和求职逻辑之间的错位。</h2>
+          <p>当方向、岗位判断、材料表达和沟通节奏彼此脱节，学生会越来越忙，却很难判断哪些动作真正有效。</p>
+        </div>
+      </div>
+      <div class="pain-grid">
+        <article class="pain-card">
+          <span class="number">01</span>
+          <h3>方向像临时选择</h3>
+          <p>行业、岗位、城市和申请顺序没有判断标准，每一步都靠临时感觉推进。</p>
+        </article>
+        <article class="pain-card">
+          <span class="number">02</span>
+          <h3>经历没有被看懂</h3>
+          <p>项目和实习本身不差，但简历没有把能力、证据和岗位需求对齐。</p>
+        </article>
+        <article class="pain-card">
+          <span class="number">03</span>
+          <h3>面试回答很散</h3>
+          <p>经历讲得出来，却缺少可复用的证据库，回答很难稳定地回应追问。</p>
+        </article>
+        <article class="pain-card">
+          <span class="number">04</span>
+          <h3>Networking 推不动</h3>
+          <p>知道要联系校友和从业者，却不清楚怎么开场、跟进和复盘信息。</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="shell" id="systems" aria-labelledby="systems-title">
+      <div class="section-head">
+        <div>
+          <span class="section-label">Three Core Systems</span>
+        </div>
+        <div>
+          <h2 id="systems-title">三套核心系统，把求职从一堆任务变成一条清楚路径。</h2>
+          <p>ASCENDIA 的陪跑从判断开始，再进入优先级管理和导师协作。学生不需要把所有任务同时做满，而是先知道哪一步最影响结果。</p>
+        </div>
+      </div>
+      <div class="systems">
+        <article class="system-card">
+          <span class="small-label">Career Logic Audit</span>
+          <h3>求职逻辑体检</h3>
+          <p>先梳理背景、目标、时间线和当前动作，判断真正卡住的是方向、岗位理解、材料证据、面试表达还是 networking 节奏。</p>
+          <div class="system-list">
+            <div>卡点诊断：找出最影响推进的一处阻塞点。</div>
+            <div>路径判断：明确目标岗位与当前背景的距离。</div>
+            <div>下一步建议：给出当下最该执行的动作。</div>
+          </div>
+        </article>
+        <article class="system-card">
+          <span class="small-label">Effort ROI Map</span>
+          <h3>努力 ROI 地图</h3>
+          <p>把每周求职动作按影响力、紧急度和可执行性排序，让学生看见哪些努力值得继续，哪些消耗需要暂停。</p>
+          <div class="system-list">
+            <div>优先级排序：把高价值动作放到前面。</div>
+            <div>投入复盘：看清时间花在哪里，是否带来反馈。</div>
+            <div>节奏调整：根据面试、回复和申请节点更新计划。</div>
+          </div>
+        </article>
+        <article class="system-card">
+          <span class="small-label">2v1 Mentor Matrix</span>
+          <h3>2v1 导师矩阵</h3>
+          <p>主导师负责全局策略、节奏和复盘；岗位导师提供行业语境、面试追问和 networking 实战判断。</p>
+          <div class="system-list">
+            <div>主导师：定位、材料策略、时间线和 next step。</div>
+            <div>岗位导师：岗位逻辑、面试压力和真实业务语境。</div>
+            <div>学生：执行、反馈、迭代，始终知道下一步。</div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="shell" aria-labelledby="support-title">
+      <div class="section-head">
+        <div>
+          <span class="section-label">Supporting Systems</span>
+        </div>
+        <div>
+          <h2 id="support-title">核心系统之外，每个关键环节都有对应工具。</h2>
+          <p>我们把“改简历、练面试、做 networking”拆成可交付的工作流，让学生的每一次准备都更接近目标岗位的判断方式。</p>
+        </div>
+      </div>
+      <div class="support-grid">
+        <article class="support-card">
+          <span class="number">01</span>
+          <h3>岗位逻辑解剖</h3>
+          <p>拆解目标岗位看重的能力、证据和面试判断方式，避免只按职位名称准备。</p>
+        </article>
+        <article class="support-card">
+          <span class="number">02</span>
+          <h3>面试证据库</h3>
+          <p>把项目、冲突、影响力、数据和业务判断沉淀成可复用故事，回答更稳。</p>
+        </article>
+        <article class="support-card">
+          <span class="number">03</span>
+          <h3>Networking 沟通系统</h3>
+          <p>设计触达、跟进、coffee chat 问题和复盘节奏，让连接更有方向。</p>
+        </article>
+        <article class="support-card">
+          <span class="number">04</span>
+          <h3>无责进度复盘</h3>
+          <p>进度卡住时先看系统：优先级、材料、时间线和反馈质量，而不是责怪学生。</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="shell" id="process" aria-labelledby="process-title">
+      <div class="section-head">
+        <div>
+          <span class="section-label">Service Process</span>
+        </div>
+        <div>
+          <h2 id="process-title">从第一次体检到持续陪跑，每一步都留下明确判断。</h2>
+          <p>ASCENDIA 的流程不追求把任务塞满，而是让每一次修改、练习和沟通都有理由、有优先级、有复盘。</p>
+        </div>
+      </div>
+      <div class="process">
+        <article class="process-step">
+          <strong>Audit</strong>
+          <h3>体检卡点</h3>
+          <p>梳理背景、目标和时间线，判断当前最影响推进的因素。</p>
+        </article>
+        <article class="process-step">
+          <strong>Role</strong>
+          <h3>拆岗位逻辑</h3>
+          <p>看清目标岗位如何判断候选人，再决定材料与面试重点。</p>
+        </article>
+        <article class="process-step">
+          <strong>Map</strong>
+          <h3>重排努力优先级</h3>
+          <p>用努力 ROI 地图安排每周动作，减少低价值消耗。</p>
+        </article>
+        <article class="process-step">
+          <strong>Proof</strong>
+          <h3>搭建证据库</h3>
+          <p>重构简历表达和面试故事，让经历成为清楚的能力证据。</p>
+        </article>
+        <article class="process-step">
+          <strong>Connect</strong>
+          <h3>推进沟通系统</h3>
+          <p>建立 networking 触达、跟进和信息复盘节奏。</p>
+        </article>
+        <article class="process-step">
+          <strong>Review</strong>
+          <h3>无责复盘调整</h3>
+          <p>根据反馈更新策略，让下一轮行动更清楚。</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="shell" id="proof" aria-labelledby="proof-title">
+      <div class="section-head">
+        <div>
+          <span class="section-label">Case-Style Proof</span>
+        </div>
+        <div>
+          <h2 id="proof-title">我们不做夸张战报，只展示问题如何被拆开。</h2>
+          <p>每个学生的背景不同。真正有价值的，是看见当时卡在哪里、哪类努力在消耗、下一步如何被重新排序。</p>
+        </div>
+      </div>
+      <div class="case-layout">
+        <article class="case-card featured">
+          <div>
+            <span class="case-id">01</span>
+            <h3>商科硕士目标咨询岗：经历很多，但岗位逻辑不清楚。</h3>
+            <p>体检后发现，学生的核心问题在于项目叙事没有对应咨询岗位的判断方式，很多好经历没有被准确看见。</p>
+          </div>
+          <div class="case-fields">
+            <div class="case-field">
+              <span>Background</span>
+              <p>市场、咨询项目和校园组织经历交织。</p>
+            </div>
+            <div class="case-field">
+              <span>Blocker</span>
+              <p>无法解释自己为什么适合咨询。</p>
+            </div>
+            <div class="case-field">
+              <span>System</span>
+              <p>岗位逻辑解剖 + 面试证据库。</p>
+            </div>
+            <div class="case-field">
+              <span>Shift</span>
+              <p>回答从罗列经历，转向问题拆解、影响力和商业判断。</p>
+            </div>
+          </div>
+        </article>
+        <div class="case-stack">
+          <article class="case-card">
+            <span class="case-id">02</span>
+            <h3>金融方向本科生：networking 做了很多，反馈却不稳定。</h3>
+            <p>通过努力 ROI 地图暂停低质量广撒网，改为目标清单、沟通脚本和每周复盘，学生开始看清哪些触达值得继续。</p>
+          </article>
+          <article class="case-card">
+            <span class="case-id">03</span>
+            <h3>商业分析研究生：项目扎实，但面试回答停在工具层。</h3>
+            <p>面试证据库帮助学生把指标、假设、洞察和行动建议串起来，让回答更贴近业务场景。</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="shell" aria-labelledby="commit-title">
+      <div class="commitment-panel">
+        <span class="section-label">Service Commitments</span>
+        <h2 id="commit-title">高端陪跑的价值，来自稳定交付和清楚边界。</h2>
+          <p>ASCENDIA 不承诺 offer，也不制造焦虑。我们的服务边界很清楚：认真诊断、清楚表达、及时反馈，并在每次推进后确认下一步。</p>
+        <div class="commitment-grid">
+          <article class="commitment-card">
+            <span class="number">01</span>
+            <h3>3 天内交付体检判断</h3>
+            <p>首次沟通后输出卡点、优先级和下一步行动建议。</p>
+          </article>
+          <article class="commitment-card">
+            <span class="number">02</span>
+            <h3>工作时间 3 小时响应</h3>
+            <p>关键节点不悬空，学生知道问题正在被处理。</p>
+          </article>
+          <article class="commitment-card">
+            <span class="number">03</span>
+            <h3>每次会议确认 Next Step</h3>
+            <p>建议必须落到任务、负责人和时间节点。</p>
+          </article>
+          <article class="commitment-card">
+            <span class="number">04</span>
+            <h3>无责进度复盘</h3>
+            <p>进度卡住时先看路径和方法，再调整下一轮动作。</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="shell cta" id="diagnosis" aria-labelledby="cta-title">
+      <div class="cta-panel">
+        <div>
+          <span class="section-label">Final CTA</span>
+          <h2 id="cta-title">申请前，先做一次求职逻辑体检。</h2>
+          <p>告诉我们你的学校、年级、目标方向和当前最卡的地方。我们会先帮你判断：现在最该拆的是方向、岗位逻辑、材料证据、面试故事，还是 networking 节奏。</p>
+          <div class="cta-list">
+            <div>
+              <span>1</span>
+              <p>先判断卡点，再谈服务。你会看到当下最影响推进的一步。</p>
+            </div>
+            <div>
+              <span>2</span>
+              <p>诊断不承诺结果，只帮你把下一步行动看清楚。</p>
+            </div>
+          </div>
+        </div>
+
+        <form class="form" id="diagnosis-form">
+          <div class="field">
+            <label for="name">姓名</label>
+            <input id="name" name="name" type="text" placeholder="你的称呼" required>
+          </div>
+          <div class="field">
+            <label for="school">学校</label>
+            <input id="school" name="school" type="text" placeholder="例如：UCL / NYU / University of Melbourne" required>
+          </div>
+          <div class="form-row">
+            <div class="field">
+              <label for="stage">阶段</label>
+              <select id="stage" name="stage" required>
+                <option value="">请选择</option>
+                <option>本科在读</option>
+                <option>硕士在读</option>
+                <option>毕业 0-2 年</option>
+                <option>其他阶段</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="target">目标方向</label>
+              <input id="target" name="target" type="text" placeholder="例如：咨询 / 金融 / 商分 / 市场" required>
+            </div>
+          </div>
+          <div class="field">
+            <label for="blocker">当前最卡的地方</label>
+            <textarea id="blocker" name="blocker" placeholder="可以写：方向不清、岗位逻辑看不懂、简历证据弱、面试回答散、networking 推不动等。"></textarea>
+          </div>
+          <button class="btn btn-primary" type="submit">预约求职逻辑体检</button>
+          <p class="form-status" id="form-status" aria-live="polite"></p>
+          <p class="form-helper">提交前，请确认信息足够具体：学校、阶段、目标方向和当前卡点，会直接影响体检质量。</p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="shell">
+      ASCENDIA Career Studio · 拆解求职逻辑，让每一分努力不白费。
+    </div>
+  </footer>
+
+  <script>
+    const form = document.getElementById("diagnosis-form");
+    const status = document.getElementById("form-status");
+
+    form.addEventListener("submit", function (event) {
+      event.preventDefault();
+      status.textContent = "已记录你的预约意向。正式上线时，可接入预约、邮件或 CRM 系统。";
+    });
+  </script>
+</body>
+</html>
