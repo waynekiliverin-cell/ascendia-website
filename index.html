@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="ASCENDIA 为国际学生提供职业定位、简历与 LinkedIn 优化、面试故事库、模拟面试、Networking 与招聘全周期支持。">
+  <meta name="description" content="ASCENDIA 是面向国际学生的精品职业咨询工作室，通过 2v1 导师陪跑与 Offer Readiness System，帮助学生诊断求职卡点、建立岗位证据并推进申请节奏。">
   <meta name="theme-color" content="#08111f">
   <title>ASCENDIA | 国际学生职业咨询</title>
   <style>
@@ -477,43 +477,129 @@
       color: var(--muted);
     }
 
-    .system-intro .btn {
-      margin-top: 28px;
+    .system-mini-map {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 26px;
+      padding-top: 22px;
+      border-top: 1px solid rgba(226, 231, 238, 0.14);
     }
 
-    .system-stack {
+    .system-mini-map span {
+      display: inline-flex;
+      align-items: center;
+      min-height: 32px;
+      padding: 0 12px;
+      border: 1px solid rgba(215, 184, 102, 0.24);
+      border-radius: var(--radius-sm);
+      color: var(--silver);
+      background: #111b2e;
+      font-size: 0.74rem;
+      font-weight: 700;
+    }
+
+    .system-map {
+      position: relative;
       display: grid;
-      gap: 16px;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+      align-items: start;
+    }
+
+    .system-map::before {
+      content: "";
+      position: absolute;
+      top: 44px;
+      bottom: 56px;
+      left: 50%;
+      width: 1px;
+      background: linear-gradient(180deg, transparent, rgba(215, 184, 102, 0.5), transparent);
+      pointer-events: none;
     }
 
     .system-card {
-      display: grid;
-      grid-template-columns: 56px minmax(0, 1fr);
-      gap: 20px;
-      padding: 26px;
-      border: 1px solid rgba(226, 231, 238, 0.14);
+      position: relative;
+      min-width: 0;
+      overflow: hidden;
+      padding: clamp(28px, 3vw, 40px);
+      border: 1px solid #263247;
       border-radius: var(--radius-md);
-      background: rgba(23, 36, 58, 0.62);
+      background: var(--navy-raised);
       transition: transform 0.18s ease, border-color 0.18s ease, background 0.18s ease;
+    }
+
+    .system-card::after {
+      content: attr(data-step);
+      position: absolute;
+      top: -18px;
+      right: 22px;
+      color: var(--gold);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(4.6rem, 8vw, 7rem);
+      font-weight: 700;
+      line-height: 1;
+      opacity: 0.08;
+      pointer-events: none;
     }
 
     .system-card:hover,
     .system-card:focus-within {
       transform: translateY(-2px);
       border-color: var(--line);
-      background: var(--navy-raised);
+      background: #1b2942;
+    }
+
+    .system-card-gateway,
+    .system-card-cadence {
+      grid-column: 1 / -1;
+    }
+
+    .system-card-evidence {
+      margin-top: 28px;
+    }
+
+    .system-card-replay {
+      grid-column: 1 / -1;
+      margin-left: min(16%, 120px);
+    }
+
+    .system-card-cadence {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(220px, 0.56fr);
+      gap: 24px;
+      align-items: end;
+      border-color: rgba(215, 184, 102, 0.3);
+      background: #111b2e;
+    }
+
+    .system-card-head {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 18px;
     }
 
     .system-number {
+      width: 38px;
+      height: 38px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      flex: 0 0 auto;
+      border: 1px solid rgba(215, 184, 102, 0.64);
+      border-radius: 50%;
       color: var(--gold);
+      background: var(--navy);
       font-family: Georgia, "Times New Roman", serif;
-      font-size: 1.25rem;
+      font-size: 0.86rem;
       font-weight: 700;
     }
 
     .system-name {
       display: block;
-      margin-bottom: 10px;
       color: var(--gold-light);
       font-size: 0.72rem;
       font-weight: 700;
@@ -522,23 +608,79 @@
     }
 
     .system-card h3 {
+      position: relative;
+      z-index: 1;
       color: var(--paper);
-      font-size: 1.22rem;
+      font-family: "Songti SC", "Noto Serif SC", "SimSun", Georgia, serif;
+      font-size: clamp(1.24rem, 2vw, 1.45rem);
     }
 
     .system-card p {
+      position: relative;
+      z-index: 1;
       margin: 12px 0 0;
       color: var(--muted);
-      font-size: 0.92rem;
+      font-size: 0.93rem;
+      line-height: 1.72;
+    }
+
+    .system-question {
+      color: var(--silver);
+      font-weight: 700;
+    }
+
+    .system-question span {
+      color: var(--gold-light);
+      font-size: 0.76rem;
+      letter-spacing: 0.06em;
+    }
+
+    .system-action {
+      max-width: 660px;
     }
 
     .system-output {
+      position: relative;
+      z-index: 1;
       margin-top: 16px;
-      padding-top: 14px;
-      border-top: 1px solid rgba(226, 231, 238, 0.12);
+      padding: 13px 14px;
+      border: 1px solid rgba(215, 184, 102, 0.22);
+      border-radius: var(--radius-sm);
       color: var(--silver);
+      background: #101b2d;
       font-size: 0.88rem;
       font-weight: 700;
+    }
+
+    .system-output span {
+      color: var(--gold-light);
+      margin-right: 8px;
+    }
+
+    .system-ticks {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      gap: 10px;
+    }
+
+    .system-ticks span {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--silver);
+      font-size: 0.84rem;
+      font-weight: 700;
+    }
+
+    .system-ticks span::before {
+      content: "";
+      width: 9px;
+      height: 9px;
+      flex: 0 0 auto;
+      border: 1px solid var(--gold);
+      border-radius: 50%;
+      background: var(--navy);
     }
 
     .section-head {
@@ -569,6 +711,25 @@
 
     .band-light .section-label {
       color: #7b6226;
+    }
+
+    .section-cta {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      margin-top: 26px;
+      padding: 22px 26px;
+      border: 1px solid var(--line-light);
+      border-radius: var(--radius-md);
+      background: rgba(255, 253, 248, 0.66);
+    }
+
+    .section-cta span {
+      max-width: 680px;
+      color: var(--ink);
+      font-size: 0.95rem;
+      font-weight: 700;
     }
 
     .services {
@@ -661,7 +822,7 @@
       margin: 0;
       padding: 0;
       display: grid;
-      grid-template-columns: repeat(4, minmax(0, 1fr));
+      grid-template-columns: repeat(5, minmax(0, 1fr));
       border-top: 1px solid rgba(226, 231, 238, 0.14);
       border-left: 1px solid rgba(226, 231, 238, 0.14);
       list-style: none;
@@ -696,7 +857,7 @@
 
     .scenarios {
       display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
+      grid-template-columns: repeat(4, minmax(0, 1fr));
       gap: 18px;
     }
 
@@ -741,6 +902,80 @@
       margin: 24px 0 0;
       color: var(--muted-dark);
       font-size: 0.82rem;
+    }
+
+    .mentor-layout {
+      display: grid;
+      grid-template-columns: minmax(260px, 0.72fr) minmax(0, 1.28fr);
+      gap: clamp(40px, 7vw, 96px);
+      align-items: center;
+    }
+
+    .mentor-copy h2 {
+      margin-top: 16px;
+      color: var(--ink);
+      font-family: "Songti SC", "Noto Serif SC", "SimSun", Georgia, serif;
+      font-size: clamp(2rem, 4vw, 2.75rem);
+    }
+
+    .mentor-copy p {
+      margin-top: 18px;
+      color: var(--muted-dark);
+    }
+
+    .mentor-map {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+      align-items: stretch;
+    }
+
+    .mentor-node,
+    .mentor-center {
+      min-height: 220px;
+      padding: 26px;
+      border: 1px solid var(--line-light);
+      border-radius: var(--radius-md);
+      background: var(--paper);
+    }
+
+    .mentor-center {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      color: var(--paper);
+      border-color: var(--line);
+      background: var(--navy);
+    }
+
+    .mentor-node span,
+    .mentor-center span {
+      display: block;
+      margin-bottom: 16px;
+      color: #806729;
+      font-size: 0.74rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+    }
+
+    .mentor-center span {
+      color: var(--gold-light);
+    }
+
+    .mentor-node h3,
+    .mentor-center h3 {
+      font-size: 1.18rem;
+    }
+
+    .mentor-node p,
+    .mentor-center p {
+      margin: 13px 0 0;
+      color: var(--muted-dark);
+      font-size: 0.9rem;
+    }
+
+    .mentor-center p {
+      color: var(--muted);
     }
 
     .principles {
@@ -871,9 +1106,45 @@
       gap: 24px;
     }
 
+    .footer-main {
+      display: grid;
+      gap: 5px;
+    }
+
     .footer strong {
       color: var(--silver);
       font-weight: 700;
+    }
+
+    .footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+    }
+
+    .footer-links a {
+      transition: color 0.18s ease;
+    }
+
+    .footer-links a:hover,
+    .footer-links a:focus-visible {
+      color: var(--gold-light);
+    }
+
+    .footer-disclaimer {
+      display: block;
+      color: var(--muted);
+    }
+
+    @media (max-width: 1080px) {
+      .nav-links {
+        gap: 18px;
+        font-size: 0.84rem;
+      }
+
+      .nav-cta {
+        display: none;
+      }
     }
 
     @media (max-width: 960px) {
@@ -894,13 +1165,42 @@
         position: static;
       }
 
+      .system-map {
+        grid-template-columns: 1fr;
+        padding-left: 34px;
+      }
+
+      .system-map::before {
+        top: 18px;
+        bottom: 18px;
+        left: 14px;
+        background: linear-gradient(180deg, rgba(215, 184, 102, 0.66), rgba(215, 184, 102, 0.18));
+      }
+
+      .system-card-gateway,
+      .system-card-cadence,
+      .system-card-replay {
+        grid-column: auto;
+      }
+
+      .system-card-evidence,
+      .system-card-replay {
+        margin-top: 0;
+        margin-left: 0;
+      }
+
+      .system-card-cadence {
+        grid-template-columns: 1fr;
+      }
+
       .services,
       .scenarios {
         grid-template-columns: repeat(2, minmax(0, 1fr));
       }
 
       .deliverables,
-      .consultation {
+      .consultation,
+      .mentor-layout {
         grid-template-columns: 1fr;
       }
 
@@ -911,6 +1211,10 @@
       .process,
       .principles {
         grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .mentor-map {
+        grid-template-columns: 1fr;
       }
 
       .consultation-status {
@@ -997,12 +1301,28 @@
         width: 100%;
       }
 
-      .system-intro .btn {
-        width: 100%;
+      .system-card {
+        padding: 24px;
       }
 
-      .system-card {
-        grid-template-columns: 1fr;
+      .system-card::after {
+        top: -10px;
+        right: 14px;
+        font-size: 4.4rem;
+      }
+
+      .system-card-head {
+        align-items: flex-start;
+      }
+
+      .system-number {
+        width: 34px;
+        height: 34px;
+      }
+
+      .system-mini-map {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
       }
 
       .hero-trust {
@@ -1031,6 +1351,15 @@
         grid-template-columns: 1fr;
       }
 
+      .section-cta {
+        align-items: stretch;
+        flex-direction: column;
+      }
+
+      .section-cta .btn {
+        width: 100%;
+      }
+
       .service-card,
       .process-step,
       .principle {
@@ -1045,6 +1374,10 @@
         align-items: flex-start;
         flex-direction: column;
         gap: 8px;
+      }
+
+      .footer-links {
+        gap: 10px 14px;
       }
     }
 
@@ -1061,6 +1394,8 @@
 
       .service-card,
       .scenario,
+      .mentor-node,
+      .mentor-center,
       .consultation-status {
         padding: 24px;
       }
@@ -1103,14 +1438,15 @@
       </a>
 
       <nav class="nav-links" id="primary-navigation" aria-label="主导航">
+        <a href="#scenarios">常见卡点</a>
         <a href="#system">方法系统</a>
-        <a href="#services">交付内容</a>
-        <a href="#approach">服务方式</a>
-        <a href="#scenarios">服务场景</a>
+        <a href="#services">交付资产</a>
+        <a href="#mentors">导师陪跑</a>
+        <a href="#approach">合作流程</a>
       </nav>
 
       <div class="nav-actions">
-        <a class="btn btn-primary nav-cta" href="https://v.wjx.cn/vm/el3zsb6.aspx#" target="_blank" rel="noopener noreferrer">Start Consultation Questionnaire</a>
+        <a class="btn btn-primary nav-cta" href="https://v.wjx.cn/vm/el3zsb6.aspx#" target="_blank" rel="noopener noreferrer">提交求职卡点问卷</a>
         <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="primary-navigation" aria-label="打开导航菜单">
           <span></span>
           <span></span>
@@ -1123,19 +1459,19 @@
   <main id="main-content">
     <section class="shell hero" id="top" aria-labelledby="hero-title">
       <div>
-        <span class="eyebrow">国际学生职业咨询</span>
+        <span class="eyebrow">ASCENDIA International Career Studio</span>
         <h1 id="hero-title">先看清求职卡点，<br>再推进每一步。</h1>
         <p class="hero-copy">
-          ASCENDIA 用 Offer Readiness System 帮国际学生拆解求职：先定位卡点，再评估目标岗位优先级，搭建可复用的 Evidence Bank，并通过 Interview Replay 和进度陪跑持续推进。
+          ASCENDIA 是面向国际学生的精品职业咨询工作室。我们用 2v1 导师陪跑和 Offer Readiness System，把模糊的方向、经历表达、面试复盘和申请节奏拆成一条可执行路径。
         </p>
         <div class="hero-actions">
-          <a class="btn btn-primary" href="https://v.wjx.cn/vm/el3zsb6.aspx#" target="_blank" rel="noopener noreferrer">Start Consultation Questionnaire</a>
+          <a class="btn btn-primary" href="https://v.wjx.cn/vm/el3zsb6.aspx#" target="_blank" rel="noopener noreferrer">提交求职卡点问卷</a>
           <a class="btn btn-secondary" href="#system">查看方法系统</a>
         </div>
         <div class="hero-trust" aria-label="ASCENDIA 服务原则">
-          <span>Career Bottleneck Diagnostic</span>
-          <span>Track Fit Map + Evidence Bank</span>
-          <span>Interview Replay + Progress Tracker</span>
+          <span>2v1 导师矩阵</span>
+          <span>岗位证据库</span>
+          <span>进度预警表</span>
         </div>
       </div>
 
@@ -1145,213 +1481,25 @@
             <img src="./assets/ascendia-logo.png" width="1200" height="980" alt="">
           </span>
           <span>
-            <span class="hero-panel-kicker">ASCENDIA Method</span>
-            <span class="hero-panel-title">Offer Readiness System</span>
+            <span class="hero-panel-kicker">After Questionnaire</span>
+            <span class="hero-panel-title">先判断，再沟通</span>
           </span>
         </div>
         <ol class="service-path">
           <li>
             <strong>01</strong>
-            <span><b>卡点诊断</b>先判断方向、材料、证据、面试还是推进节奏出了问题</span>
+            <span><b>填写卡点问卷</b>提供学校、年级、目标方向、招聘阶段和当前困惑</span>
           </li>
           <li>
             <strong>02</strong>
-            <span><b>路径评分</b>把目标方向拆成主攻、冲刺和备选，明确投入顺序</span>
+            <span><b>导师初筛</b>先看方向、证据、面试和推进节奏，判断主要卡点</span>
           </li>
           <li>
             <strong>03</strong>
-            <span><b>证据与复盘</b>建立 Evidence Bank，用 Interview Replay 和进度表持续迭代</span>
+            <span><b>确认诊断重点</b>进入 1v1 沟通前，明确最值得先处理的问题</span>
           </li>
         </ol>
       </aside>
-    </section>
-
-    <section class="band band-raised system-band" id="system" aria-labelledby="system-title">
-      <div class="shell system-layout">
-        <div class="system-intro">
-          <span class="section-label">ASCENDIA Offer Readiness System</span>
-          <h2 id="system-title">把分散的努力，整理成一套可推进的求职系统。</h2>
-          <p>求职卡住时，常见原因是卡点没有被看见，努力被分散到太多方向。ASCENDIA 先做诊断，再把目标路径、经历证据、面试反馈和每周推进放进同一套工作流里。</p>
-          <a class="btn btn-primary" href="https://v.wjx.cn/vm/el3zsb6.aspx#" target="_blank" rel="noopener noreferrer">Start Consultation Questionnaire</a>
-        </div>
-
-        <div class="system-stack" aria-label="ASCENDIA Offer Readiness System 五个模块">
-          <article class="system-card">
-            <span class="system-number">01</span>
-            <div>
-              <span class="system-name">Career Bottleneck Diagnostic</span>
-              <h3>求职卡点诊断报告</h3>
-              <p>先找出真正影响推进的环节：方向错配、经历无法转化成岗位语言、投递节奏混乱，或 networking 没有产生有效反馈。</p>
-              <div class="system-output">输出物：当前卡点、优先级排序、下一步行动建议。</div>
-            </div>
-          </article>
-
-          <article class="system-card">
-            <span class="system-number">02</span>
-            <div>
-              <span class="system-name">Track Fit & Priority Map</span>
-              <h3>岗位匹配与申请优先级地图</h3>
-              <p>方向多时，最需要先算清每条路的匹配度和投入代价。我们结合背景、能力证据、地区限制、招聘节奏和 networking 可达性，区分主攻、冲刺和备选路径。</p>
-              <div class="system-output">输出物：岗位优先级、投入顺序、阶段性调整依据。</div>
-            </div>
-          </article>
-
-          <article class="system-card">
-            <span class="system-number">03</span>
-            <div>
-              <span class="system-name">Evidence Bank</span>
-              <h3>求职证据库</h3>
-              <p>很多经历有价值，只是还没有被翻译成岗位能看懂的能力证据。我们把实习、项目、课堂和社团经历整理成可复用的底层素材。</p>
-              <div class="system-output">输出物：简历、面试、LinkedIn、networking 共用的证据资产。</div>
-            </div>
-          </article>
-
-          <article class="system-card">
-            <span class="system-number">04</span>
-            <div>
-              <span class="system-name">Interview Replay System</span>
-              <h3>面试复盘系统</h3>
-              <p>每一次 mock 都留下记录：问题类型、回答结构、证据强度、追问表现、掉分点和下一次训练重点。</p>
-              <div class="system-output">输出物：可追踪的面试改进记录和 Decision Log。</div>
-            </div>
-          </article>
-
-          <article class="system-card">
-            <span class="system-number">05</span>
-            <div>
-              <span class="system-name">No-Blame Progress System</span>
-              <h3>进度陪跑机制</h3>
-              <p>当进度变慢，我们一起拆解任务是否过大、路径是否清楚、反馈是否具体，再确认每周优先级和 next step。</p>
-              <div class="system-output">输出物：导师 SLA、每周优先级、进度追踪和卡点复盘。</div>
-            </div>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="band band-light" id="services" aria-labelledby="services-title">
-      <div class="shell">
-        <div class="section-head">
-          <div>
-            <span class="section-label">系统输出物</span>
-          </div>
-          <div>
-            <h2 id="services-title">每一项服务，都沉淀成可复用的求职资产。</h2>
-            <p>你会看到清楚的诊断、路径地图、证据库、复盘记录和推进表。每个模块都对应一个输出物，让学生知道为什么这样准备、准备到什么程度、下一步怎么推进。</p>
-          </div>
-        </div>
-
-        <div class="services">
-          <article class="service-card">
-            <span class="service-card-label">Diagnostic</span>
-            <h3>求职卡点诊断报告</h3>
-            <p>定位当前最影响推进的环节，并给出优先级排序和下一步建议。</p>
-          </article>
-          <article class="service-card">
-            <span class="service-card-label">Track Map</span>
-            <h3>岗位匹配与优先级地图</h3>
-            <p>把目标方向拆成主攻、冲刺、备选，避免把精力平均分散。</p>
-          </article>
-          <article class="service-card">
-            <span class="service-card-label">Evidence</span>
-            <h3>求职证据库</h3>
-            <p>把经历拆成岗位能力证据，支持简历、面试、LinkedIn 和职业沟通。</p>
-          </article>
-          <article class="service-card">
-            <span class="service-card-label">Replay</span>
-            <h3>面试复盘记录</h3>
-            <p>每次 mock 后记录问题类型、回答质量、掉分点和下一次训练重点。</p>
-          </article>
-          <article class="service-card">
-            <span class="service-card-label">Networking</span>
-            <h3>职业沟通策略</h3>
-            <p>确认目标联系人、沟通目的、开场方式和后续跟进节奏。</p>
-          </article>
-          <article class="service-card">
-            <span class="service-card-label">Progress</span>
-            <h3>进度陪跑与卡点复盘</h3>
-            <p>用每周优先级、导师反馈和 next step，让申请持续向前推进。</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="band band-dark" aria-labelledby="deliverables-title">
-      <div class="shell deliverables">
-        <div class="deliverables-copy">
-          <span class="section-label">资产沉淀</span>
-          <h2 id="deliverables-title">从一次修改，沉淀为后续申请都能调用的底层资产。</h2>
-          <p>ASCENDIA 会把建议落到可复用资产上：判断框架、岗位语言、故事素材、复盘记录和进度表。学生之后遇到新岗位，也能用同一套逻辑继续推进。</p>
-        </div>
-
-        <div class="deliverable-list">
-          <article class="deliverable">
-            <span>01</span>
-            <div>
-              <h3>Track Fit Score Card</h3>
-              <p>用背景匹配、能力证据、地区限制、招聘节奏和 networking 可达性，判断每个方向的投入顺序。</p>
-            </div>
-          </article>
-          <article class="deliverable">
-            <span>02</span>
-            <div>
-              <h3>Evidence Bank</h3>
-              <p>把经历拆成 Context、Action、Data、Impact 和 Transferable Skill，让材料与面试调用同一套证据。</p>
-            </div>
-          </article>
-          <article class="deliverable">
-            <span>03</span>
-            <div>
-              <h3>Interview Replay + Decision Log</h3>
-              <p>记录每次 mock 的问题类型、回答结构、掉分点和训练重点，让下一次练习更有方向。</p>
-            </div>
-          </article>
-          <article class="deliverable">
-            <span>04</span>
-            <div>
-              <h3>No-Blame Progress Tracker</h3>
-              <p>当推进变慢，先拆任务、看路径、补反馈，再确认每周优先级和可执行 next step。</p>
-            </div>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="band band-raised" id="approach" aria-labelledby="approach-title">
-      <div class="shell">
-        <div class="section-head">
-          <div>
-            <span class="section-label">合作流程</span>
-          </div>
-          <div>
-            <h2 id="approach-title">先看清卡点，再安排训练顺序。</h2>
-            <p>每个阶段都对应一类问题：先判断卡在哪里，再决定先补定位、补证据、练面试，还是调整申请节奏。</p>
-          </div>
-        </div>
-
-        <ol class="process">
-          <li class="process-step">
-            <span>01</span>
-            <h3>Diagnose</h3>
-            <p>梳理经历、目标方向、招聘时间线和当前需求，确认真正影响推进的卡点。</p>
-          </li>
-          <li class="process-step">
-            <span>02</span>
-            <h3>Position</h3>
-            <p>用 Track Fit Map 区分主攻、冲刺和备选方向，让申请选择有依据。</p>
-          </li>
-          <li class="process-step">
-            <span>03</span>
-            <h3>Build</h3>
-            <p>搭建 Evidence Bank，重塑简历、LinkedIn、面试故事和 networking 话术。</p>
-          </li>
-          <li class="process-step">
-            <span>04</span>
-            <h3>Replay & Progress</h3>
-            <p>通过 mock 复盘、Decision Log 和进度追踪，持续更新下一阶段行动计划。</p>
-          </li>
-        </ol>
-      </div>
     </section>
 
     <section class="band band-light" id="scenarios" aria-labelledby="scenarios-title">
@@ -1361,8 +1509,8 @@
             <span class="section-label">常见卡点</span>
           </div>
           <div>
-            <h2 id="scenarios-title">学生常见的求职焦虑，通常可以拆成具体卡点。</h2>
-            <p>以下场景用于说明 ASCENDIA 如何拆解问题，不构成客户案例或结果承诺。</p>
+            <h2 id="scenarios-title">如果你也卡在这些地方，先别急着盲投。</h2>
+            <p>很多学生的问题并不在努力程度，而在卡点没有被准确拆开。ASCENDIA 会先判断你卡在方向、证据、面试、networking 还是推进节奏，再决定下一步行动。</p>
           </div>
         </div>
 
@@ -1370,23 +1518,232 @@
           <article class="scenario">
             <span class="scenario-tag">方向卡点</span>
             <h3>目标很多，但主攻路径不清楚</h3>
-            <p>先把岗位方向按匹配度、机会窗口和投入代价排序，再决定本阶段该集中推进哪条路径。</p>
-            <div class="scenario-shift">重点：Track Fit Map + Priority Plan</div>
+            <p>把岗位方向按匹配度、机会窗口和投入代价排序，先决定本阶段该集中推进哪条路径。</p>
+            <div class="scenario-shift">重点：Track Fit Map</div>
           </article>
           <article class="scenario">
             <span class="scenario-tag">证据卡点</span>
             <h3>经历不少，但岗位价值没有被看见</h3>
-            <p>把实习、项目和课堂经历翻译成岗位语言，让简历、面试和 networking 都围绕同一组能力证据展开。</p>
-            <div class="scenario-shift">重点：Evidence Bank + Resume Narrative</div>
+            <p>把实习、项目和课堂经历翻译成岗位语言，让简历、面试和 networking 共用同一组能力证据。</p>
+            <div class="scenario-shift">重点：Evidence Bank</div>
           </article>
           <article class="scenario">
-            <span class="scenario-tag">复盘卡点</span>
-            <h3>练习很多，但改进点没有沉淀</h3>
-            <p>把每一次 mock 的掉分模式、追问表现和下一步训练记录下来，让面试准备持续迭代。</p>
-            <div class="scenario-shift">重点：Interview Replay + Decision Log</div>
+            <span class="scenario-tag">面试卡点</span>
+            <h3>练习很多，但掉分模式没有沉淀</h3>
+            <p>记录每一次 mock 的结构、证据、追问和风险点，让下一次训练更有针对性。</p>
+            <div class="scenario-shift">重点：Interview Replay</div>
+          </article>
+          <article class="scenario">
+            <span class="scenario-tag">推进卡点</span>
+            <h3>Networking 做了，但节奏很难持续</h3>
+            <p>明确联系人、开场目的、跟进动作和每周优先级，让申请不会停在“我再等等”。</p>
+            <div class="scenario-shift">重点：Progress Tracker</div>
           </article>
         </div>
-        <p class="scenario-note">正式发布的客户案例应经过授权，并使用可核实的匿名信息。</p>
+
+        <div class="section-cta">
+          <span>不确定自己主要卡在哪里？先把背景和目标交给导师判断。</span>
+          <a class="btn btn-primary" href="https://v.wjx.cn/vm/el3zsb6.aspx#" target="_blank" rel="noopener noreferrer">提交求职卡点问卷</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="band band-raised system-band" id="system" aria-labelledby="system-title">
+      <div class="shell system-layout">
+        <div class="system-intro">
+          <span class="section-label">ASCENDIA Offer Readiness System</span>
+          <h2 id="system-title">定位路径、岗位证据、面试复盘和推进节奏，放进同一张 readiness map。</h2>
+          <p>Offer Readiness System 是 ASCENDIA 的工作方法：先判断你离目标岗位还差哪一环，再由 2v1 导师把材料、面试、networking 和每周行动放到同一套节奏里。</p>
+          <div class="system-mini-map" aria-label="Offer Readiness System 简短路径">
+            <span>Diagnose</span>
+            <span>Prioritize</span>
+            <span>Prove</span>
+            <span>Replay</span>
+            <span>Sustain</span>
+          </div>
+        </div>
+
+        <div class="system-map" aria-label="ASCENDIA Offer Readiness System 五个模块">
+          <article class="system-card system-card-gateway" data-step="01">
+            <div class="system-card-head">
+              <span class="system-number">01</span>
+              <span class="system-name">Career Bottleneck Diagnostic</span>
+            </div>
+            <h3>求职卡点诊断报告</h3>
+            <p class="system-question"><span>核心判断</span> 真正卡点在哪里？</p>
+            <p class="system-action">导师先拆方向、材料、证据、面试和推进节奏，确认最影响当前结果的环节。</p>
+            <div class="system-output"><span>输出物</span>卡点优先级 + 下一步行动建议</div>
+          </article>
+
+          <article class="system-card system-card-strategy" data-step="02">
+            <div class="system-card-head">
+              <span class="system-number">02</span>
+              <span class="system-name">Track Fit & Priority Map</span>
+            </div>
+            <h3>岗位匹配与申请优先级地图</h3>
+            <p class="system-question"><span>核心判断</span> 先攻哪条路径，暂缓哪条路径？</p>
+            <p class="system-action">结合背景、能力证据、地区限制、招聘节奏和 networking 可达性，区分主攻、冲刺和备选方向。</p>
+            <div class="system-output"><span>输出物</span>岗位优先级 + 投入顺序</div>
+          </article>
+
+          <article class="system-card system-card-evidence" data-step="03">
+            <div class="system-card-head">
+              <span class="system-number">03</span>
+              <span class="system-name">Evidence Bank</span>
+            </div>
+            <h3>求职证据库</h3>
+            <p class="system-question"><span>核心判断</span> 哪些经历能证明你适合目标岗位？</p>
+            <p class="system-action">把实习、项目、课堂和社团经历翻译成岗位能看懂的能力证据。</p>
+            <div class="system-output"><span>输出物</span>简历、面试、LinkedIn 共用证据资产</div>
+          </article>
+
+          <article class="system-card system-card-replay" data-step="04">
+            <div class="system-card-head">
+              <span class="system-number">04</span>
+              <span class="system-name">Interview Replay System</span>
+            </div>
+            <h3>面试复盘系统</h3>
+            <p class="system-question"><span>核心判断</span> 掉分点如何变成下一次训练重点？</p>
+            <p class="system-action">每一次 mock 都记录问题类型、回答结构、证据强度、追问表现和风险点。</p>
+            <div class="system-output"><span>输出物</span>Interview Replay Log + Decision Log</div>
+          </article>
+
+          <article class="system-card system-card-cadence" data-step="05">
+            <div>
+              <div class="system-card-head">
+                <span class="system-number">05</span>
+                <span class="system-name">No-Blame Progress System</span>
+              </div>
+              <h3>进度陪跑机制</h3>
+              <p class="system-question"><span>核心判断</span> 进度变慢时，如何无责复盘并重新推进？</p>
+              <p class="system-action">一起拆解任务是否过大、路径是否清楚、反馈是否具体，再确认每周优先级和 next step。</p>
+              <div class="system-output"><span>输出物</span>导师 SLA + 每周优先级 + 进度预警</div>
+            </div>
+            <div class="system-ticks" aria-label="进度陪跑包含内容">
+              <span>Weekly Priority</span>
+              <span>Blocker Review</span>
+              <span>Next Step Tracker</span>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="band band-dark" id="services" aria-labelledby="deliverables-title">
+      <div class="shell deliverables">
+        <div class="deliverables-copy">
+          <span class="section-label">你会拿到什么</span>
+          <h2 id="deliverables-title">把关键交付，沉淀成可以继续使用的求职资产。</h2>
+          <p>ASCENDIA 的交付会落在具体资产上。你会知道当前卡点、目标优先级、材料怎么改、面试怎么练、下周该推进什么。</p>
+        </div>
+
+        <div class="deliverable-list">
+          <article class="deliverable">
+            <span>01</span>
+            <div>
+              <h3>Career Bottleneck Diagnostic Report</h3>
+              <p>整理当前最影响推进的卡点，并给出优先级排序和下一步行动建议。</p>
+            </div>
+          </article>
+          <article class="deliverable">
+            <span>02</span>
+            <div>
+              <h3>Track Fit Map</h3>
+              <p>用背景匹配、能力证据、地区限制、招聘节奏和 networking 可达性，判断每个方向的投入顺序。</p>
+            </div>
+          </article>
+          <article class="deliverable">
+            <span>03</span>
+            <div>
+              <h3>Evidence Bank</h3>
+              <p>把经历拆成 Context、Action、Data、Impact 和 Transferable Skill，让材料与面试调用同一套证据。</p>
+            </div>
+          </article>
+          <article class="deliverable">
+            <span>04</span>
+            <div>
+              <h3>Interview Replay + Decision Log</h3>
+              <p>记录每次 mock 的问题类型、回答结构、掉分点和训练重点，让下一次练习更有方向。</p>
+            </div>
+          </article>
+          <article class="deliverable">
+            <span>05</span>
+            <div>
+              <h3>Progress Tracker</h3>
+              <p>把 networking、投递、面试准备和每周 next step 放进同一张进度表，及时发现卡住的地方。</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="band band-light" id="mentors" aria-labelledby="mentors-title">
+      <div class="shell mentor-layout">
+        <div class="mentor-copy">
+          <span class="section-label">2v1 Mentor Matrix</span>
+          <h2 id="mentors-title">方法要落地，需要有人持续看路径，也有人看岗位细节。</h2>
+          <p>ASCENDIA 的陪跑由两类导师共同承担。主导师负责长期路径、节奏和卡点复盘，目标岗位导师负责行业语言、面试深度和 networking 实战，学生在两类反馈之间持续执行和迭代。</p>
+        </div>
+
+        <div class="mentor-map" aria-label="ASCENDIA 2v1 导师矩阵">
+          <article class="mentor-node">
+            <span>Main Mentor</span>
+            <h3>主导师</h3>
+            <p>负责整体定位、阶段优先级、材料主线、每周进度和关键卡点复盘。</p>
+          </article>
+          <article class="mentor-center">
+            <span>ASCENDIA Loop</span>
+            <h3>诊断、执行、反馈、再推进</h3>
+            <p>每一次修改、mock 和 networking 反馈，都会回到同一条求职路径上。</p>
+          </article>
+          <article class="mentor-node">
+            <span>Target Role Mentor</span>
+            <h3>目标岗位导师</h3>
+            <p>提供行业判断、岗位语言、面试追问、case 训练和 networking 场景建议。</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="band band-raised" id="approach" aria-labelledby="approach-title">
+      <div class="shell">
+        <div class="section-head">
+          <div>
+            <span class="section-label">提交问卷后</span>
+          </div>
+          <div>
+            <h2 id="approach-title">合作先从问卷判断开始，再安排下一步节奏。</h2>
+            <p>问卷会帮助我们先判断是否适合进一步诊断，再确认真正值得投入的准备顺序。</p>
+          </div>
+        </div>
+
+        <ol class="process">
+          <li class="process-step">
+            <span>01</span>
+            <h3>问卷初筛</h3>
+            <p>了解学校、年级、经历、目标方向和当前招聘阶段。</p>
+          </li>
+          <li class="process-step">
+            <span>02</span>
+            <h3>1v1 诊断沟通</h3>
+            <p>确认真正影响推进的卡点，以及现阶段最需要解决的问题。</p>
+          </li>
+          <li class="process-step">
+            <span>03</span>
+            <h3>Readiness Map</h3>
+            <p>把目标方向、证据强度、面试状态和推进节奏放在同一张图上。</p>
+          </li>
+          <li class="process-step">
+            <span>04</span>
+            <h3>每周推进</h3>
+            <p>围绕材料、面试、networking 和投递节奏确认本周 next step。</p>
+          </li>
+          <li class="process-step">
+            <span>05</span>
+            <h3>阶段复盘</h3>
+            <p>根据回复、面试表现和沟通反馈，判断下一阶段继续、补强或重新排序。</p>
+          </li>
+        </ol>
       </div>
     </section>
 
@@ -1394,11 +1751,11 @@
       <div class="shell">
         <div class="section-head">
           <div>
-            <span class="section-label">陪跑机制</span>
+            <span class="section-label">服务标准</span>
           </div>
           <div>
-            <h2 id="principles-title">把“负责”落实到看得见的机制里。</h2>
-            <p>职业咨询无法替代招聘决策，但可以让准备更有依据，让每一步更容易复盘，也让学生知道自己下一步该做什么。</p>
+            <h2 id="principles-title">陪跑的责任，要看得见。</h2>
+            <p>职业咨询无法替代招聘决策，但可以把准备过程变得更清楚：每次反馈有依据，每周推进有优先级，每个卡点都能被及时看见。</p>
           </div>
         </div>
 
@@ -1428,7 +1785,7 @@
         <div class="consultation-copy">
           <span class="section-label">开始沟通</span>
           <h2 id="consultation-title">从一次清晰的卡点诊断开始。</h2>
-          <p>问卷会帮助我们先判断你的主要求职卡点：方向、证据、面试、networking 或进度节奏。提交后，我们会根据背景和目标判断是否适合进入下一步诊断沟通。</p>
+          <p>问卷会帮助 ASCENDIA 先了解你的学校、年级、目标方向、招聘阶段和当前主要卡点。提交后，我们会判断是否适合进入下一步 1v1 诊断沟通。</p>
           <div class="consultation-points" aria-label="咨询前需要确认的信息">
             <span>学习与经历背景</span>
             <span>目标岗位与方向</span>
@@ -1441,7 +1798,7 @@
           <span class="status-label">当前状态</span>
           <h3>咨询问卷已开放</h3>
           <p>填写问卷后，我们会先看你的方向、证据、面试和推进节奏，再判断下一步是否适合进一步沟通。</p>
-          <a class="status-action" href="https://v.wjx.cn/vm/el3zsb6.aspx#" target="_blank" rel="noopener noreferrer">Start Consultation Questionnaire</a>
+          <a class="status-action" href="https://v.wjx.cn/vm/el3zsb6.aspx#" target="_blank" rel="noopener noreferrer">提交求职卡点问卷</a>
         </aside>
       </div>
     </section>
@@ -1449,8 +1806,17 @@
 
   <footer class="footer">
     <div class="shell footer-inner">
-      <strong>ASCENDIA International Career Advisory</strong>
-      <span>为国际学生提供结构化、负责任的职业咨询支持。</span>
+      <div class="footer-main">
+        <strong>ASCENDIA International Career Advisory</strong>
+        <span>为国际学生提供结构化、负责任的职业咨询支持。</span>
+        <span class="footer-disclaimer">ASCENDIA 提升求职准备度与执行质量，不承诺任何录用结果。</span>
+      </div>
+      <div class="footer-links" aria-label="页脚导航">
+        <a href="#scenarios">常见卡点</a>
+        <a href="#system">方法系统</a>
+        <a href="#mentors">导师陪跑</a>
+        <a href="#consultation">开始诊断</a>
+      </div>
     </div>
   </footer>
 
