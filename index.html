@@ -449,6 +449,98 @@
       background: var(--navy-soft);
     }
 
+    .system-band {
+      background: linear-gradient(180deg, var(--navy-soft), var(--navy));
+    }
+
+    .system-layout {
+      display: grid;
+      grid-template-columns: minmax(260px, 0.78fr) minmax(0, 1.22fr);
+      gap: clamp(38px, 7vw, 86px);
+      align-items: start;
+    }
+
+    .system-intro {
+      position: sticky;
+      top: calc(var(--nav-height) + 28px);
+    }
+
+    .system-intro h2 {
+      margin-top: 16px;
+      color: var(--paper);
+      font-family: "Songti SC", "Noto Serif SC", "SimSun", Georgia, serif;
+      font-size: clamp(2rem, 4vw, 2.75rem);
+    }
+
+    .system-intro p {
+      margin-top: 18px;
+      color: var(--muted);
+    }
+
+    .system-intro .btn {
+      margin-top: 28px;
+    }
+
+    .system-stack {
+      display: grid;
+      gap: 16px;
+    }
+
+    .system-card {
+      display: grid;
+      grid-template-columns: 56px minmax(0, 1fr);
+      gap: 20px;
+      padding: 26px;
+      border: 1px solid rgba(226, 231, 238, 0.14);
+      border-radius: var(--radius-md);
+      background: rgba(23, 36, 58, 0.62);
+      transition: transform 0.18s ease, border-color 0.18s ease, background 0.18s ease;
+    }
+
+    .system-card:hover,
+    .system-card:focus-within {
+      transform: translateY(-2px);
+      border-color: var(--line);
+      background: var(--navy-raised);
+    }
+
+    .system-number {
+      color: var(--gold);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 1.25rem;
+      font-weight: 700;
+    }
+
+    .system-name {
+      display: block;
+      margin-bottom: 10px;
+      color: var(--gold-light);
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    .system-card h3 {
+      color: var(--paper);
+      font-size: 1.22rem;
+    }
+
+    .system-card p {
+      margin: 12px 0 0;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    .system-output {
+      margin-top: 16px;
+      padding-top: 14px;
+      border-top: 1px solid rgba(226, 231, 238, 0.12);
+      color: var(--silver);
+      font-size: 0.88rem;
+      font-weight: 700;
+    }
+
     .section-head {
       display: grid;
       grid-template-columns: minmax(160px, 0.35fr) minmax(0, 0.85fr);
@@ -794,6 +886,14 @@
         max-width: 680px;
       }
 
+      .system-layout {
+        grid-template-columns: 1fr;
+      }
+
+      .system-intro {
+        position: static;
+      }
+
       .services,
       .scenarios {
         grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -897,6 +997,14 @@
         width: 100%;
       }
 
+      .system-intro .btn {
+        width: 100%;
+      }
+
+      .system-card {
+        grid-template-columns: 1fr;
+      }
+
       .hero-trust {
         display: grid;
         gap: 8px;
@@ -995,10 +1103,10 @@
       </a>
 
       <nav class="nav-links" id="primary-navigation" aria-label="主导航">
-        <a href="#services">服务内容</a>
+        <a href="#system">方法系统</a>
+        <a href="#services">交付内容</a>
         <a href="#approach">服务方式</a>
         <a href="#scenarios">服务场景</a>
-        <a href="#principles">合作原则</a>
       </nav>
 
       <div class="nav-actions">
@@ -1016,18 +1124,18 @@
     <section class="shell hero" id="top" aria-labelledby="hero-title">
       <div>
         <span class="eyebrow">国际学生职业咨询</span>
-        <h1 id="hero-title">把经历讲清楚，<br>把求职走扎实。</h1>
+        <h1 id="hero-title">先看清求职卡点，<br>再推进每一步。</h1>
         <p class="hero-copy">
-          ASCENDIA 提供覆盖完整招聘流程的职业咨询。我们与你一起明确目标岗位，优化简历与 LinkedIn，建立面试故事库，练习模拟面试与职业沟通，并根据真实反馈持续调整申请策略。
+          ASCENDIA 用 Offer Readiness System 帮国际学生拆解求职：先定位卡点，再评估目标岗位优先级，搭建可复用的 Evidence Bank，并通过 Interview Replay 和进度陪跑持续推进。
         </p>
         <div class="hero-actions">
           <a class="btn btn-primary" href="https://v.wjx.cn/vm/el3zsb6.aspx#" target="_blank" rel="noopener noreferrer">Start Consultation Questionnaire</a>
-          <a class="btn btn-secondary" href="#services">查看服务内容</a>
+          <a class="btn btn-secondary" href="#system">查看方法系统</a>
         </div>
         <div class="hero-trust" aria-label="ASCENDIA 服务原则">
-          <span>从个人背景与目标出发</span>
-          <span>建议对应具体招聘环节</span>
-          <span>不承诺录用结果</span>
+          <span>Career Bottleneck Diagnostic</span>
+          <span>Track Fit Map + Evidence Bank</span>
+          <span>Interview Replay + Progress Tracker</span>
         </div>
       </div>
 
@@ -1037,69 +1145,132 @@
             <img src="./assets/ascendia-logo.png" width="1200" height="980" alt="">
           </span>
           <span>
-            <span class="hero-panel-kicker">从定位到招聘推进</span>
-            <span class="hero-panel-title">围绕关键环节持续准备</span>
+            <span class="hero-panel-kicker">ASCENDIA Method</span>
+            <span class="hero-panel-title">Offer Readiness System</span>
           </span>
         </div>
         <ol class="service-path">
           <li>
             <strong>01</strong>
-            <span><b>方向与材料</b>岗位定位、申请策略、简历与 LinkedIn</span>
+            <span><b>卡点诊断</b>先判断方向、材料、证据、面试还是推进节奏出了问题</span>
           </li>
           <li>
             <strong>02</strong>
-            <span><b>面试与表达</b>面试故事库、模拟面试与具体反馈</span>
+            <span><b>路径评分</b>把目标方向拆成主攻、冲刺和备选，明确投入顺序</span>
           </li>
           <li>
             <strong>03</strong>
-            <span><b>沟通与推进</b>Networking、招聘节奏与阶段复盘</span>
+            <span><b>证据与复盘</b>建立 Evidence Bank，用 Interview Replay 和进度表持续迭代</span>
           </li>
         </ol>
       </aside>
+    </section>
+
+    <section class="band band-raised system-band" id="system" aria-labelledby="system-title">
+      <div class="shell system-layout">
+        <div class="system-intro">
+          <span class="section-label">ASCENDIA Offer Readiness System</span>
+          <h2 id="system-title">把分散的努力，整理成一套可推进的求职系统。</h2>
+          <p>求职卡住时，常见原因是卡点没有被看见，努力被分散到太多方向。ASCENDIA 先做诊断，再把目标路径、经历证据、面试反馈和每周推进放进同一套工作流里。</p>
+          <a class="btn btn-primary" href="https://v.wjx.cn/vm/el3zsb6.aspx#" target="_blank" rel="noopener noreferrer">Start Consultation Questionnaire</a>
+        </div>
+
+        <div class="system-stack" aria-label="ASCENDIA Offer Readiness System 五个模块">
+          <article class="system-card">
+            <span class="system-number">01</span>
+            <div>
+              <span class="system-name">Career Bottleneck Diagnostic</span>
+              <h3>求职卡点诊断报告</h3>
+              <p>先找出真正影响推进的环节：方向错配、经历无法转化成岗位语言、投递节奏混乱，或 networking 没有产生有效反馈。</p>
+              <div class="system-output">输出物：当前卡点、优先级排序、下一步行动建议。</div>
+            </div>
+          </article>
+
+          <article class="system-card">
+            <span class="system-number">02</span>
+            <div>
+              <span class="system-name">Track Fit & Priority Map</span>
+              <h3>岗位匹配与申请优先级地图</h3>
+              <p>方向多时，最需要先算清每条路的匹配度和投入代价。我们结合背景、能力证据、地区限制、招聘节奏和 networking 可达性，区分主攻、冲刺和备选路径。</p>
+              <div class="system-output">输出物：岗位优先级、投入顺序、阶段性调整依据。</div>
+            </div>
+          </article>
+
+          <article class="system-card">
+            <span class="system-number">03</span>
+            <div>
+              <span class="system-name">Evidence Bank</span>
+              <h3>求职证据库</h3>
+              <p>很多经历有价值，只是还没有被翻译成岗位能看懂的能力证据。我们把实习、项目、课堂和社团经历整理成可复用的底层素材。</p>
+              <div class="system-output">输出物：简历、面试、LinkedIn、networking 共用的证据资产。</div>
+            </div>
+          </article>
+
+          <article class="system-card">
+            <span class="system-number">04</span>
+            <div>
+              <span class="system-name">Interview Replay System</span>
+              <h3>面试复盘系统</h3>
+              <p>每一次 mock 都留下记录：问题类型、回答结构、证据强度、追问表现、掉分点和下一次训练重点。</p>
+              <div class="system-output">输出物：可追踪的面试改进记录和 Decision Log。</div>
+            </div>
+          </article>
+
+          <article class="system-card">
+            <span class="system-number">05</span>
+            <div>
+              <span class="system-name">No-Blame Progress System</span>
+              <h3>进度陪跑机制</h3>
+              <p>当进度变慢，我们一起拆解任务是否过大、路径是否清楚、反馈是否具体，再确认每周优先级和 next step。</p>
+              <div class="system-output">输出物：导师 SLA、每周优先级、进度追踪和卡点复盘。</div>
+            </div>
+          </article>
+        </div>
+      </div>
     </section>
 
     <section class="band band-light" id="services" aria-labelledby="services-title">
       <div class="shell">
         <div class="section-head">
           <div>
-            <span class="section-label">服务内容</span>
+            <span class="section-label">系统输出物</span>
           </div>
           <div>
-            <h2 id="services-title">围绕完整招聘流程，提供有重点的支持。</h2>
-            <p>服务从你的背景、目标岗位和招聘阶段出发。重点不是套用固定模板，而是确认现阶段最值得投入的准备工作。</p>
+            <h2 id="services-title">每一项服务，都沉淀成可复用的求职资产。</h2>
+            <p>你会看到清楚的诊断、路径地图、证据库、复盘记录和推进表。每个模块都对应一个输出物，让学生知道为什么这样准备、准备到什么程度、下一步怎么推进。</p>
           </div>
         </div>
 
         <div class="services">
           <article class="service-card">
-            <span class="service-card-label">方向</span>
-            <h3>求职策略与岗位定位</h3>
-            <p>梳理行业、岗位、地区与招聘时间线，明确申请重点和现实取舍。</p>
+            <span class="service-card-label">Diagnostic</span>
+            <h3>求职卡点诊断报告</h3>
+            <p>定位当前最影响推进的环节，并给出优先级排序和下一步建议。</p>
           </article>
           <article class="service-card">
-            <span class="service-card-label">材料</span>
-            <h3>简历与 LinkedIn 优化</h3>
-            <p>提炼经历中的职责、行动与成果，让表达更准确地回应目标岗位。</p>
+            <span class="service-card-label">Track Map</span>
+            <h3>岗位匹配与优先级地图</h3>
+            <p>把目标方向拆成主攻、冲刺、备选，避免把精力平均分散。</p>
           </article>
           <article class="service-card">
-            <span class="service-card-label">表达</span>
-            <h3>面试故事库</h3>
-            <p>系统整理项目、合作、挑战与影响力经历，为行为面试和追问建立可靠素材。</p>
+            <span class="service-card-label">Evidence</span>
+            <h3>求职证据库</h3>
+            <p>把经历拆成岗位能力证据，支持简历、面试、LinkedIn 和职业沟通。</p>
           </article>
           <article class="service-card">
-            <span class="service-card-label">练习</span>
-            <h3>模拟面试与反馈</h3>
-            <p>结合岗位类型进行练习，在结构、表达、业务判断和临场沟通上获得具体反馈。</p>
+            <span class="service-card-label">Replay</span>
+            <h3>面试复盘记录</h3>
+            <p>每次 mock 后记录问题类型、回答质量、掉分点和下一次训练重点。</p>
           </article>
           <article class="service-card">
-            <span class="service-card-label">连接</span>
-            <h3>Networking 支持</h3>
-            <p>完善联系人筛选、邀约、职业交流与后续跟进，让沟通自然且有目的。</p>
+            <span class="service-card-label">Networking</span>
+            <h3>职业沟通策略</h3>
+            <p>确认目标联系人、沟通目的、开场方式和后续跟进节奏。</p>
           </article>
           <article class="service-card">
-            <span class="service-card-label">推进</span>
-            <h3>招聘全周期支持</h3>
-            <p>根据申请、笔试、面试和沟通反馈更新重点，稳定推进每个招聘阶段。</p>
+            <span class="service-card-label">Progress</span>
+            <h3>进度陪跑与卡点复盘</h3>
+            <p>用每周优先级、导师反馈和 next step，让申请持续向前推进。</p>
           </article>
         </div>
       </div>
@@ -1108,38 +1279,38 @@
     <section class="band band-dark" aria-labelledby="deliverables-title">
       <div class="shell deliverables">
         <div class="deliverables-copy">
-          <span class="section-label">具体工作</span>
-          <h2 id="deliverables-title">每项建议，都对应一个真实的招聘任务。</h2>
-          <p>从材料修改到面试练习，ASCENDIA 关注的是你能否理解修改依据，并在后续申请中独立使用。</p>
+          <span class="section-label">资产沉淀</span>
+          <h2 id="deliverables-title">从一次修改，沉淀为后续申请都能调用的底层资产。</h2>
+          <p>ASCENDIA 会把建议落到可复用资产上：判断框架、岗位语言、故事素材、复盘记录和进度表。学生之后遇到新岗位，也能用同一套逻辑继续推进。</p>
         </div>
 
         <div class="deliverable-list">
           <article class="deliverable">
             <span>01</span>
             <div>
-              <h3>建立目标岗位判断框架</h3>
-              <p>理解岗位重视的能力、经历证据和招聘节奏，让申请选择有依据。</p>
+              <h3>Track Fit Score Card</h3>
+              <p>用背景匹配、能力证据、地区限制、招聘节奏和 networking 可达性，判断每个方向的投入顺序。</p>
             </div>
           </article>
           <article class="deliverable">
             <span>02</span>
             <div>
-              <h3>重构职业材料表达</h3>
-              <p>让简历与 LinkedIn 使用一致的职业叙事，同时保留真实、可验证的经历细节。</p>
+              <h3>Evidence Bank</h3>
+              <p>把经历拆成 Context、Action、Data、Impact 和 Transferable Skill，让材料与面试调用同一套证据。</p>
             </div>
           </article>
           <article class="deliverable">
             <span>03</span>
             <div>
-              <h3>沉淀可复用的面试素材</h3>
-              <p>把经历整理为清晰的情境、行动、判断与结果，支持不同问题和深入追问。</p>
+              <h3>Interview Replay + Decision Log</h3>
+              <p>记录每次 mock 的问题类型、回答结构、掉分点和训练重点，让下一次练习更有方向。</p>
             </div>
           </article>
           <article class="deliverable">
             <span>04</span>
             <div>
-              <h3>根据招聘反馈调整策略</h3>
-              <p>结合回复、面试和沟通结果，判断下一阶段应继续、补强还是重新排序。</p>
+              <h3>No-Blame Progress Tracker</h3>
+              <p>当推进变慢，先拆任务、看路径、补反馈，再确认每周优先级和可执行 next step。</p>
             </div>
           </article>
         </div>
@@ -1150,34 +1321,34 @@
       <div class="shell">
         <div class="section-head">
           <div>
-            <span class="section-label">服务方式</span>
+            <span class="section-label">合作流程</span>
           </div>
           <div>
-            <h2 id="approach-title">每个阶段，都有明确的准备重点。</h2>
-            <p>合作从理解你的背景开始，再根据招聘阶段安排材料、练习、沟通和复盘。</p>
+            <h2 id="approach-title">先看清卡点，再安排训练顺序。</h2>
+            <p>每个阶段都对应一类问题：先判断卡在哪里，再决定先补定位、补证据、练面试，还是调整申请节奏。</p>
           </div>
         </div>
 
         <ol class="process">
           <li class="process-step">
             <span>01</span>
-            <h3>了解背景与目标</h3>
-            <p>梳理经历、目标方向、招聘时间线和当前需求。</p>
+            <h3>Diagnose</h3>
+            <p>梳理经历、目标方向、招聘时间线和当前需求，确认真正影响推进的卡点。</p>
           </li>
           <li class="process-step">
             <span>02</span>
-            <h3>确认优先事项</h3>
-            <p>共同判断现阶段应先处理定位、材料、面试还是职业沟通。</p>
+            <h3>Position</h3>
+            <p>用 Track Fit Map 区分主攻、冲刺和备选方向，让申请选择有依据。</p>
           </li>
           <li class="process-step">
             <span>03</span>
-            <h3>针对性准备</h3>
-            <p>围绕具体岗位完成材料修改、故事整理、模拟练习和申请推进。</p>
+            <h3>Build</h3>
+            <p>搭建 Evidence Bank，重塑简历、LinkedIn、面试故事和 networking 话术。</p>
           </li>
           <li class="process-step">
             <span>04</span>
-            <h3>根据反馈调整</h3>
-            <p>结合招聘结果与沟通反馈，持续更新下一阶段的行动计划。</p>
+            <h3>Replay & Progress</h3>
+            <p>通过 mock 复盘、Decision Log 和进度追踪，持续更新下一阶段行动计划。</p>
           </li>
         </ol>
       </div>
@@ -1187,32 +1358,32 @@
       <div class="shell">
         <div class="section-head">
           <div>
-            <span class="section-label">服务场景</span>
+            <span class="section-label">常见卡点</span>
           </div>
           <div>
-            <h2 id="scenarios-title">不同背景，需要不同的准备重点。</h2>
-            <p>以下为常见服务场景，用于说明 ASCENDIA 的工作方式，不构成客户案例或结果承诺。</p>
+            <h2 id="scenarios-title">学生常见的求职焦虑，通常可以拆成具体卡点。</h2>
+            <p>以下场景用于说明 ASCENDIA 如何拆解问题，不构成客户案例或结果承诺。</p>
           </div>
         </div>
 
         <div class="scenarios">
           <article class="scenario">
-            <span class="scenario-tag">咨询方向</span>
-            <h3>经历丰富，但面试表达缺少主线</h3>
-            <p>将分散的项目经历重新组织为问题分析、协作、影响力和商业判断的具体证据。</p>
-            <div class="scenario-shift">重点：岗位理解 + 面试故事库</div>
+            <span class="scenario-tag">方向卡点</span>
+            <h3>目标很多，但主攻路径不清楚</h3>
+            <p>先把岗位方向按匹配度、机会窗口和投入代价排序，再决定本阶段该集中推进哪条路径。</p>
+            <div class="scenario-shift">重点：Track Fit Map + Priority Plan</div>
           </article>
           <article class="scenario">
-            <span class="scenario-tag">金融方向</span>
-            <h3>职业沟通很多，但缺少清晰目的</h3>
-            <p>明确目标联系人、每次沟通的目的和后续跟进方式，提高交流的信息价值。</p>
-            <div class="scenario-shift">重点：Networking 策略 + 跟进节奏</div>
+            <span class="scenario-tag">证据卡点</span>
+            <h3>经历不少，但岗位价值没有被看见</h3>
+            <p>把实习、项目和课堂经历翻译成岗位语言，让简历、面试和 networking 都围绕同一组能力证据展开。</p>
+            <div class="scenario-shift">重点：Evidence Bank + Resume Narrative</div>
           </article>
           <article class="scenario">
-            <span class="scenario-tag">商业分析方向</span>
-            <h3>项目扎实，但叙述停在工具层</h3>
-            <p>把工具使用、分析判断、业务洞察和行动建议连接成完整的项目故事。</p>
-            <div class="scenario-shift">重点：材料表达 + 模拟面试</div>
+            <span class="scenario-tag">复盘卡点</span>
+            <h3>练习很多，但改进点没有沉淀</h3>
+            <p>把每一次 mock 的掉分模式、追问表现和下一步训练记录下来，让面试准备持续迭代。</p>
+            <div class="scenario-shift">重点：Interview Replay + Decision Log</div>
           </article>
         </div>
         <p class="scenario-note">正式发布的客户案例应经过授权，并使用可核实的匿名信息。</p>
@@ -1223,30 +1394,30 @@
       <div class="shell">
         <div class="section-head">
           <div>
-            <span class="section-label">合作原则</span>
+            <span class="section-label">陪跑机制</span>
           </div>
           <div>
-            <h2 id="principles-title">清晰、尊重，并对每一项建议负责。</h2>
-            <p>职业咨询无法替代招聘决策，但可以让准备更有依据，让每一步更容易复盘。</p>
+            <h2 id="principles-title">把“负责”落实到看得见的机制里。</h2>
+            <p>职业咨询无法替代招聘决策，但可以让准备更有依据，让每一步更容易复盘，也让学生知道自己下一步该做什么。</p>
           </div>
         </div>
 
         <div class="principles">
           <article class="principle">
-            <h3>建议有依据</h3>
-            <p>每项修改和练习都对应具体岗位、材料或招聘环节。</p>
+            <h3>首次 call 后 3 天内交付</h3>
+            <p>诊断沟通后整理阶段重点、路径建议和下一步行动，让合作从清晰的判断开始。</p>
           </article>
           <article class="principle">
-            <h3>反馈有重点</h3>
-            <p>优先处理最影响当前推进的问题，避免无目的反复修改。</p>
+            <h3>工作时间 3 小时内响应</h3>
+            <p>关键材料、面试节点和申请推进有明确反馈窗口，减少等待带来的节奏损耗。</p>
           </article>
           <article class="principle">
-            <h3>节奏共同确认</h3>
-            <p>根据招聘时间线和个人安排，确定现实可行的准备计划。</p>
+            <h3>每次会议确认 Next Step</h3>
+            <p>每次沟通都落到具体任务、完成标准和优先级，避免会后不知道怎么执行。</p>
           </article>
           <article class="principle">
-            <h3>边界如实说明</h3>
-            <p>不承诺录用结果，也不通过制造焦虑推动合作决定。</p>
+            <h3>进度预警表追踪</h3>
+            <p>当投递、networking 或面试准备放缓，及时识别卡点并调整任务颗粒度。</p>
           </article>
         </div>
       </div>
@@ -1256,20 +1427,20 @@
       <div class="shell consultation">
         <div class="consultation-copy">
           <span class="section-label">开始沟通</span>
-          <h2 id="consultation-title">从一次清晰的职业沟通开始。</h2>
-          <p>正式咨询通道启用后，你可以提供学习背景、目标方向、招聘阶段和当前需求。ASCENDIA 将据此了解你的情况，并确认双方是否适合进一步合作。</p>
+          <h2 id="consultation-title">从一次清晰的卡点诊断开始。</h2>
+          <p>问卷会帮助我们先判断你的主要求职卡点：方向、证据、面试、networking 或进度节奏。提交后，我们会根据背景和目标判断是否适合进入下一步诊断沟通。</p>
           <div class="consultation-points" aria-label="咨询前需要确认的信息">
             <span>学习与经历背景</span>
-            <span>目标岗位或方向</span>
+            <span>目标岗位与方向</span>
             <span>当前招聘阶段</span>
-            <span>希望获得的支持</span>
+            <span>当前主要卡点</span>
           </div>
         </div>
 
         <aside class="consultation-status" aria-label="咨询通道状态">
           <span class="status-label">当前状态</span>
           <h3>咨询问卷已开放</h3>
-          <p>填写问卷后，我们会根据你的学习背景、目标方向、招聘阶段和当前需求，判断下一步是否适合进一步沟通。</p>
+          <p>填写问卷后，我们会先看你的方向、证据、面试和推进节奏，再判断下一步是否适合进一步沟通。</p>
           <a class="status-action" href="https://v.wjx.cn/vm/el3zsb6.aspx#" target="_blank" rel="noopener noreferrer">Start Consultation Questionnaire</a>
         </aside>
       </div>
